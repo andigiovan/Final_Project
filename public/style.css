@@ -1,0 +1,97 @@
+.topnav-right {
+    color: rgb(7, 110, 170) !important;
+    
+    
+  }
+
+div  {
+  font-family: sans-serif 'Times New Roman', Times, serif
+}
+
+.logo {
+  font-family: 'Crimson Text';
+}
+
+.height {
+  margin-bottom: 35%
+  
+}
+
+.width {
+  width: 250px !important
+  
+}
+
+.alert-width {
+  width: 300px;
+}
+
+.img-container {
+  text-align: center;
+  display: block
+}
+
+.size {
+  font-size: 50px
+}
+
+.image {
+  width: 50px;
+}
+
+.card {
+  box-shadow: rgba(0,0,0,1);
+  transition: 0.3s;
+  
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.link { 
+  color: black 
+}
+
+.des {
+  background: url("https://wordsworth-editions.com/images/authors/Rene%20Descartes.jpg") top center;
+  background-size: cover;
+  margin-top: 1em;
+  padding-top: 10em;
+  scroll-padding-bottom: 10em;
+  border: solid !important;
+  border-color: rgb(210, 174, 124) !important
+
+}
+
+.header {
+  color: rgb(255, 255, 255) !important
+}
+
+.welcome {
+  border: 1px solid aqua !important;
+  background-color:rgb(249, 249, 249) !important
+}
+
+.card-utama {
+  background-color:white !important
+}
+
+.border-tron {
+  border: solid !important;
+  border-color:#907c61 !important
+}
+
+.paratokoh {
+  color: #efc549 !important
+}
+
+.video {
+  color: #a5c2c7 !important
+}
+
+
+
+
+
+

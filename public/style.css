@@ -60,7 +60,7 @@ div  {
   padding-top: 10em;
   scroll-padding-bottom: 10em;
   border: solid !important;
-  border-color: rgb(210, 174, 124) !important
+  border-color: rgb(210, 174, 124) !important;
 
 }
 
@@ -70,7 +70,10 @@ div  {
 
 .welcome {
   border: 1px solid aqua !important;
-  background-color:rgb(249, 249, 249) !important
+  background-color:rgb(249, 249, 249) !important;
+  width: 1000px !important;
+  
+  
 }
 
 .card-utama {
@@ -87,7 +90,8 @@ div  {
 }
 
 .video {
-  color: #a5c2c7 !important
+  color :rgb(249, 249, 249) !important
+  
 }
 
 

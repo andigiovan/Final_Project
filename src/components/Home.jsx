@@ -68,9 +68,9 @@ class Home extends Component {
     render() {
         return (
             <div>
-              <Card className="card-utama">
+              <Card className="card-utama align-items-center">
 
-              <Card className="m-4 mb-2 shadow-none welcome" body>
+              <Card className="m-4 mb-2 shadow-none welcome p-2 align-items-center container" body>
         <CardTitle>
         <h3 className="display-4">Selamat Datang!</h3>
         </CardTitle>
@@ -81,9 +81,9 @@ class Home extends Component {
         
              </Card>
         
-        <CardBody>
+        <CardBody className="container">
           
-          <Jumbotron className="bg-info text-black logo w-100 m-1 mt-1 des border-tron" fluid>
+          <Jumbotron className="bg-info text-black logo w-100 m-1 mt-1 des border-tron center" fluid>
         <Container fluid>
            <div className="row">
              <div className="col-6"> 
@@ -99,10 +99,13 @@ class Home extends Component {
         </Container>
       </Jumbotron>
 
-      <div className="text-center w-100 mt-3 m-1 video  ">
+      <div className="text-center w-100 mt-3 m-1 video">
 
-      <Card className="video" body inverse color="info">
-        <CardTitle></CardTitle>
+      <Card className="video container shadow-none" body inverse color="info">
+        <CardTitle>
+          <h2 className="logo font-weight-bold"> Apa itu filsafat?</h2>
+         
+        </CardTitle>
         <CardText>
         <iframe width="1000" height="515" src="https://www.youtube.com/embed/oWnwhCDzv7E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </CardText>

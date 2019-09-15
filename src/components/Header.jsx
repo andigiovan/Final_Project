@@ -99,17 +99,21 @@ class Header extends Component {
                   
                   
                   <NavItem className="text-right">
-                  <NavLink to='/register'>
-                          <Button className='topnav-right btn-sm' color="link">Create Account</Button>
+                  <NavLink to='/'>
+                      <Button className='topnav-right btn-sm' color="link">Para Tokoh</Button>
+                      </NavLink>
+                      <NavLink>
+                      <Button className='topnav-right btn-sm' color="link">Akses++</Button>
                       </NavLink>
                       <NavLink to='/login'>
-                      <Button className='topnav-right btn-sm' color="link">Edit</Button>
+                          <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
                       <Button className='topnav-right btn-sm' onClick={this.props.onLogoutUser} color="link">Log Out</Button>
                       </NavLink>
+                      
                   
 
                       
-                    <Form className="mt-2" inline>
+                    <Form className="mt-2 justify-content-end" inline>
                     
                     <input className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
                     <Button className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}

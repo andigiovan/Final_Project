@@ -11,7 +11,7 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
     return (dispatch) => {
 
         axios.get(
-            "http://localhost:1996/users",
+            "http://localhost:4000/auth/login",
             {
                 params: {
                     username: USERNAME,
@@ -62,5 +62,16 @@ export const onLogoutUser = () => {
     return {
         type: "LOGOUT_SUCCESS"
     }
+}
+
+export const searchKeyword = (keyword) => {
+
+    return {
+        type: "SEARCH_SUCCESS",
+        payload: {
+            keyword: keyword
+        }
+    }
+
 }
 

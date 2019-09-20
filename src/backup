@@ -1,0 +1,59 @@
+<CardDeck className="figure-list mt-4">
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/wHWbZmg2hzU/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+         
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/81KfDXTTtXE/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+         >
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/sP9VKJaqiN8/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+          
+        </CardBody>
+      </Card>
+    </CardDeck>
+
+    <CardDeck className="figure-list mt-5">
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/CAjWUrwvxs4/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+         
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/qxEZukcNidM/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+         >
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg src="https://i.ytimg.com/vi/nsgAsw4XGvU/maxresdefault.jpg" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+          
+        </CardBody>
+      </Card>
+    </CardDeck>

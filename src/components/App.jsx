@@ -7,6 +7,9 @@ import Login from './Login'
 import Home from "./Home"
 import Header from "./Header"
 import FigureDetail from "./FigureDetail"
+import FigureEdit from "./FigureEdit"
+import FigureList from "./FigureList"
+
 
 const keepLogin = (objUser) => {
     
@@ -48,6 +51,8 @@ class App extends Component {
                 <Route path='/login' exact component={Login}/>
                 <Route path='/register' exact component={Register}/>
                 <Route path='/figuredetail/:id' exact component={FigureDetail}/>
+                <Route path='/figureedit' exact component={FigureEdit}/>
+                <Route path='/figurelist' exact component={FigureList}/>
                 </BrowserRouter>
             </div>
         )

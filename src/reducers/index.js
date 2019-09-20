@@ -6,6 +6,10 @@ const init = {
     username: ''
 }
 
+const initSearch = {
+    keyword: ''
+}
+
 const AuthReducer = (state = init, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
@@ -21,9 +25,19 @@ const AuthReducer = (state = init, action) => {
     }
 }
 
+const searchReducer = (state = initSearch, action) => {
+    switch(action.type) {
+        case "SEARCH_SUCCESS":
+            return {...state, keyword: action.payload.keyword}
+        default:
+            return state
+    }
+}
+
 const reducers = combineReducers(
     {
-        auth: AuthReducer
+        auth: AuthReducer,
+        search: searchReducer
     }
 )
 

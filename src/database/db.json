@@ -11,33 +11,47 @@
       "password": "ashiap",
       "email": "ryhperiorrazor@rocketmail.com",
       "id": 2
+    }
+    
+  ],
+  "article": [
+    {
+      "name": "Friedrich Nietzsche",
+      "image": "https://i.ytimg.com/vi/wHWbZmg2hzU/maxresdefault.jpg",
+      "desc": "God is Dead",
+      "content": "Friedrich Nietzsche lahir pada 15 Oktober 1844 di Röcken-bei-Lützen, Kerajaan Prusia. Ia merupakan seorang putra dari pendeta Lutheran Carl Ludwig Nietzsche (1813-1849) dan Franziska. Ia memiliki nama lajang Oehler (1826-1897). Ia diberi nama tersebut untuk menghormati kaisar Prusia Friedrich Wilhelm IV yang memiliki tanggal lahir yang sama. Adik perempuannya Elisabeth dilahirkan pada 1846. Setelah kematian ayahnya pada tahun 1849 serta adik laki-lakinya Ludwig Joseph (1848-1850), keluarga ini pindah ke Naumburg dekat Saale.Pada tahun 1858, Nietzsche masuk sekolah arama di Pforta dan memperoleh nilai tinggi dalam bidang agama, sastra Jerman dan zaman klasik.  Setelah lulus dari Pforta, pada tahun 1864 ia belajar di Universitas Bonn bidang teologi dan filologi klasik. Sayangnya, hanya setahun ia belajar di sana dan kemudian pindah ke Leipzig. Tahun 1869-1879 ia dipanggil Universitas Basel untuk mengajar filologi dan setelah itu ia terpaksa pensiun dengan alasan kesehatan. Kehidupan produktif Nietzsche berlangsung hingga tahun 1889, hingga pada akhirnya tahun 1900 ia meninggal karena penyakit kelamin yang dideritanya.",
+      "id": 1
     },
     {
-      "username": "",
-      "password": "",
-      "email": "",
+      "name": "Jean-Jacques Rousseau",
+      "image": "https://i.ytimg.com/vi/81KfDXTTtXE/maxresdefault.jpg",
+      "desc": "Kontrak Sosial yang fenomenal",
+      "content": "Jean Jacques Rousseau (lahir di Jenewa, Swiss, 28 Juni 1712 – meninggal di Ermenonville, Oise, Prancis, 2 Juli 1778 pada umur 66 tahun) adalah seorang tokoh filosofi besar, penulis dan komposer pada abad pencerahan. Pemikiran filosofinya memengaruhi revolusi Prancis, perkembangan politika modern dan dasar pemikiran edukasi. Karya novelnya, Emile, atau On Education yang dinilai merupakan karyanya yang terpenting adalah tulisan kunci pada pokok pendidikan kewarganegaraan yang seutuhnya. Julie, ou la nouvelle Héloïse, novel sentimental tulisannya adalah karya penting yang mendorong pengembangan era pre-romanticism dan romanticism di bidang tulisan fiksi. Karya autobiografi Rousseau adalah: 'Confession', yang menginisiasi bentuk tulisan autobiografi modern, dan Reveries of a Solitary Walker (seiring dengan karya Lessing and Goethe in German dan Richardson and Sterne in English), adalah contoh utama gerakan akhir abad ke 18 Age of Sensibility, yang memfokus pada masalah subjectivitas dan introspeksi yang mengkarakterisasi era modern. Rousseau juga menulis dua drama dan dua opera dan menyumbangkan kontribusi penting dibidang musik sebagai teorist. Pada periode revolusi Prancis, Rousseau adalah filsafat terpopuler di antara anggota Jacobin Club. Dia dimasukan sebagai pahlawan nasional di Panthéon Paris, pada tahun 1794, enam belas tahun setelah kematiannya.Jean-Jacques Rousseau (lahir 28 Juni 1712, wafat 2 Juli 1778) adalah seorang filsuf dan komposer Prancis Era Pencerahan di mana ide-ide politiknya dipengaruhi oleh Revolusi Prancis, perkembangan teori-teori liberal dan sosialis, dan tumbuh berkembangnya nasionalisme. Melalui pengakuan dirinya sendiri dan tulisan-tulisannya, ia praktis menciptakan otobiografi modern dan mendorong perhatian yang baru terhadap pembangunan subjektivitas --- sebuah dasar bagi karya-karya bermacam-macam pemikir hebat nantinya seperti Georg Wilhelm Friedrich Hegel dan Sigmund Freud. Novelnya Julie, ou la nouvelle Héloïse adalah salah satu karya fiksi yang sangat banyak terjual pada abad ke-18 dan menjadi acuan penting dalam perkembangan karya-karya romantisme. Ia juga memberikan kontribusi penting pada musik, baik sebagai seorang pengembang teori musik maupun sebagai seorang komposer.",
+      "id": 2
+    },
+    {
+      "name": "Niccolo Machiavelli",
+      "image": "https://i.ytimg.com/vi/sP9VKJaqiN8/maxresdefault.jpg",
+      "desc": "Cara apa saja dihalalkan untuk mempertahan kekuasaan",
+      "content": "Niccolò Machiavelli lahir di Florence, Italia, 3 Mei 1469 – meninggal di Florence, Italia, 21 Juni 1527 pada umur 58 tahun adalah diplomat dan politikus Italia yang juga seorang filsuf.Sebagai ahli teori, Machiavelli adalah figur utama dalam realitas teori politik, ia sangat disegani di Eropa pada masa Renaisans. Dua bukunya yang terkenal, Discorsi sopra la prima deca di Tito Livio (Diskursus tentang Livio dan Il Principe Sang Pangeran), awalnya ditulis sebagai harapan untuk memperbaiki kondisi pemerintahan di Italia Utara, kemudian menjadi buku umum dalam berpolitik pada masa itu. Il Principe, atau Sang Pangeran menguraikan tindakan yang bisa atau perlu dilakukan seorang seseorang untuk mendapatkan atau mempertahankan kekuasaan.Nama Machiavelli, kemudian diasosiasikan dengan hal yang buruk, untuk menghalalkan cara untuk mencapai tujuan. Orang yang melakukan tindakan seperti ini disebut makiavelis.",
       "id": 3
     },
     {
-      "username": "Bob",
-      "password": "teleport1",
-      "email": "geomancer43",
+      "name": "John Locke",
+      "image": "https://i.ytimg.com/vi/bZiWZJgJT7I/maxresdefault.jpg",
+      "desc": "Mantap",
+      "content": "John Locke (lahir 29 Agustus 1632 – meninggal 28 Oktober 1704 pada umur 72 tahun) adalah seorang filsuf dari Inggris yang menjadi salah satu tokoh utama dari pendekatan empirisme. Selain itu, di dalam bidang filsafat politik, Locke juga dikenal sebagai filsuf negara liberal.Bersama dengan rekannya, Isaac Newton, Locke dipandang sebagai salah satu figur terpenting di era Pencerahan. Selain itu, Locke menandai lahirnya era Modern dan juga era pasca-Descartes (post-Cartesian), karena pendekatan Descartes tidak lagi menjadi satu-satunya pendekatan yang dominan di dalam pendekatan filsafat waktu itu. Kemudian Locke juga menekankan pentingnya pendekatan empiris dan juga pentingnya eksperimen-eksperimen di dalam mengembangkan ilmu pengetahuan.Filsafat Locke dapat dikatakan antimetafisika. Ia menerima keraguan sementara yang diajarkan oleh Descartes, tetapi ia menolak intuisi yang digunakan oleh Descartes. Ia juga menolak metode deduktif Descartes dan menggantinya dengan generalisasi berdasarkan pengalaman; jadi, induksi. Bahkan Locke menolak juga akal (reason). Ia hanya menerima pemikiran matematis yang pasti dan cara penarikan dengan metode induksi.Tulisan-tulisan Locke tidak hanya berhubungan dengan filsafat, tetapi juga tentang pendidikan, ekonomi, teologi, dan medis. Karya-karya Locke yang terpenting adalah 'Esai tentang Pemahaman Manusia' (Essay Concerning Human Understanding), 'Tulisan-Tulisan tentang Toleransi' (Letters of Toleration), dan 'Dua Tulisan tentang Pemerintahan' (Two Treatises of Government).",
       "id": 4
-    },
+    }, 
     {
-      "username": "Bopung",
-      "password": "gillera",
-      "email": "horison",
+      "name": "Rene Descartes",
+      "image": "https://i.ytimg.com/vi/CAjWUrwvxs4/maxresdefault.jpg",
+      "desc": "Mantap",
+      "content": "John Locke (lahir 29 Agustus 1632 – meninggal 28 Oktober 1704 pada umur 72 tahun) adalah seorang filsuf dari Inggris yang menjadi salah satu tokoh utama dari pendekatan empirisme. Selain itu, di dalam bidang filsafat politik, Locke juga dikenal sebagai filsuf negara liberal.Bersama dengan rekannya, Isaac Newton, Locke dipandang sebagai salah satu figur terpenting di era Pencerahan. Selain itu, Locke menandai lahirnya era Modern dan juga era pasca-Descartes (post-Cartesian), karena pendekatan Descartes tidak lagi menjadi satu-satunya pendekatan yang dominan di dalam pendekatan filsafat waktu itu. Kemudian Locke juga menekankan pentingnya pendekatan empiris dan juga pentingnya eksperimen-eksperimen di dalam mengembangkan ilmu pengetahuan.Filsafat Locke dapat dikatakan antimetafisika. Ia menerima keraguan sementara yang diajarkan oleh Descartes, tetapi ia menolak intuisi yang digunakan oleh Descartes. Ia juga menolak metode deduktif Descartes dan menggantinya dengan generalisasi berdasarkan pengalaman; jadi, induksi. Bahkan Locke menolak juga akal (reason). Ia hanya menerima pemikiran matematis yang pasti dan cara penarikan dengan metode induksi.Tulisan-tulisan Locke tidak hanya berhubungan dengan filsafat, tetapi juga tentang pendidikan, ekonomi, teologi, dan medis. Karya-karya Locke yang terpenting adalah 'Esai tentang Pemahaman Manusia' (Essay Concerning Human Understanding), 'Tulisan-Tulisan tentang Toleransi' (Letters of Toleration), dan 'Dua Tulisan tentang Pemerintahan' (Two Treatises of Government).",
       "id": 5
-    },
-    {
-      "username": "aaaaaaaa",
-      "password": "aaaaaaaa",
-      "email": "aaaaaaaa",
-      "id": 6
     }
-  ],
-  "article": [
+  ], 
+  "preview" :[
     {
       "name": "Friedrich Nietzsche",
       "image": "https://i.ytimg.com/vi/wHWbZmg2hzU/maxresdefault.jpg",

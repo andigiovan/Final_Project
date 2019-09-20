@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Card, Button, CardHeader, CardFooter, CardBody,
+import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText } from 'reactstrap';
 
 class FigureDetail extends Component {

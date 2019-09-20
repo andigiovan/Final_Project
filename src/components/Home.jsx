@@ -16,7 +16,7 @@ class Home extends Component {
 
   getData = () => {
     axios.get(
-      "http://localhost:1996/article", 
+      "http://localhost:4000/art/article", 
 
 
     ).then((res) => {
@@ -48,7 +48,7 @@ class Home extends Component {
           <CardTitle>{article.name}</CardTitle>
           </h5>
           <CardImg className="w-75 container" src={article.image}/>
-          <CardText>{article.desc}</CardText>
+          
           
         </Card>
         </Link>
@@ -126,6 +126,12 @@ class Home extends Component {
                 <Row>
                 {this.renderList()}
                 </Row>
+                <Link to="./figurelist">
+                <div className="d-flex justify-content-center">
+                <Button color="info">View More</Button>{' '}
+                </div>
+                </Link>
+                
         </CardBody>
         <CardFooter>Teks tersedia di bawah Lisensi Atribusi-BerbagiSerupa Creative Commons; ketentuan tambahan mungkin berlaku. Lihat Ketentuan Penggunaan untuk lebih jelasnya.</CardFooter>
       </Card>

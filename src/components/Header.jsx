@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {withRouter, Link, NavLink} from 'react-router-dom'
 import {
     Button,
     Collapse,
@@ -15,9 +15,18 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
     import {connect} from 'react-redux'
-    import {onLogoutUser} from '../actions/index'
+    import {onLogoutUser, searchKeyword} from '../actions/index'
 
 class Header extends Component {
+
+  onSearchSubmit = (e) => {
+    e.preventDefault()
+    this.props.searchKeyword(this.keyword.value)
+    if (this.keyword.value) {
+        this.props.history.push("/figurelist")
+    }
+
+  }
 
   render() {
         
@@ -31,9 +40,9 @@ class Header extends Component {
             <Link className="navbar-brand logo" to="/">
                   
         <h2 className="pb-0">
-        <span>
+        
         <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
-        </span>
+        
           <span className="ml-2">
         ParaTokoH
         </span> 
@@ -47,8 +56,8 @@ class Header extends Component {
                   
                   
         <NavItem className="text-right">
-        <NavLink to='/'>
-                <Button className='topnav-right btn-sm' color="link"> Para Tokoh</Button>
+        <NavLink to='/figurelist'>
+                <Button className='topnav-right btn-sm' color="link"> ParaTokoH</Button>
              </NavLink>
         <NavLink to='/register'>
                 <Button className='topnav-right btn-sm' color="link">Create Account</Button>
@@ -62,8 +71,8 @@ class Header extends Component {
                
           <Form className="mt-3" inline>
           
-          <input className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
-          <Button className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}
+          <input ref={(input)=>{this.keyword = input}} className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
+          <Button onClick={this.onSearchSubmit} className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}
                     
             </Form>
                       
@@ -82,11 +91,11 @@ class Header extends Component {
             <Navbar color="light" light expand="md">
               <Link className="navbar-brand logo" to="/">
                   
-                  <h2 className="ml-2 pb-0">
-                  <span>
+                  <h2 className="pb-0">
+                  <span></span>
                   <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
-                  </span>
-                  <span className="ml-3">
+                  
+                  <span className="ml-2">
                   ParaTokoH
                   </span> 
                   </h2>
@@ -99,11 +108,11 @@ class Header extends Component {
                   
                   
                   <NavItem className="text-right">
-                  <NavLink to='/'>
-                      <Button className='topnav-right btn-sm' color="link">Para Tokoh</Button>
+                  <NavLink to='/figurelist'>
+                      <Button className='topnav-right btn-sm' color="link">ParaTokoH</Button>
                       </NavLink>
-                      <NavLink>
-                      <Button className='topnav-right btn-sm' color="link">Akses++</Button>
+                      <NavLink to='/figureedit'>
+                      <Button className='topnav-right btn-sm' color="link">Post</Button>
                       </NavLink>
                       <NavLink to='/login'>
                           <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
@@ -115,8 +124,8 @@ class Header extends Component {
                       
                     <Form className="mt-2 justify-content-end" inline>
                     
-                    <input className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
-                    <Button className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}
+                    <input ref={(input)=>{this.keyword = input}} className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
+                    <Button onClick={this.onSearchSubmit} className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}
                     
                       </Form>
                       
@@ -140,5 +149,5 @@ const mapStateTProps = state => {
   }
 }
 
-export default connect(mapStateTProps,{onLogoutUser})(Header)
+export default withRouter(connect(mapStateTProps,{onLogoutUser, searchKeyword})(Header))
 

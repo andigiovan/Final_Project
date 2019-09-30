@@ -114,8 +114,13 @@ class Header extends Component {
                       <NavLink to='/figureedit'>
                       <Button className='topnav-right btn-sm' color="link">Post</Button>
                       </NavLink>
+                        <NavLink to='/premium'>
+                        <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
+                        </NavLink>
+                      
+                      
                       <NavLink to='/login'>
-                          <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
+                          
                       <Button className='topnav-right btn-sm' onClick={this.props.onLogoutUser} color="link">Log Out</Button>
                       </NavLink>
                       
@@ -145,7 +150,8 @@ class Header extends Component {
 
 const mapStateTProps = state => {
   return {
-    user_name: state.auth.username  
+    user_name: state.auth.username,
+    role: state.auth.role  
   }
 }
 

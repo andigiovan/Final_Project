@@ -114,7 +114,7 @@ class Home extends Component {
 
       
       </div>
-               <h5 className="container text-center mb-4 mt-4 logo font-weight-bolder size">
+               <h5 className="text-center mb-4 mt-4 logo font-weight-bolder size">
                 <CardHeader>
                     
                     Para Tokoh yang Membentuk Dunia Modern

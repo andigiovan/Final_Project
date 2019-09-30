@@ -29,18 +29,18 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
                 
             }
             else {
-                let {id, username} = res.data[0]
+                let {id, username, role} = res.data[0]
                
                 localStorage.setItem(
                     "userData", 
-                    JSON.stringify({id, username})
+                    JSON.stringify({id, username, role})
 
                 )
                 dispatch(
                     {
                         type: 'LOGIN_SUCCESS',
                         payload: {
-                            id, username
+                            id, username, role
                         }
                     }
                 )

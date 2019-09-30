@@ -9,6 +9,7 @@ import Header from "./Header"
 import FigureDetail from "./FigureDetail"
 import FigureEdit from "./FigureEdit"
 import FigureList from "./FigureList"
+import Premium from "./Premium"
 
 
 const keepLogin = (objUser) => {
@@ -18,7 +19,8 @@ const keepLogin = (objUser) => {
         type: 'LOGIN_SUCCESS',
         payload: {
             id: objUser.id,
-            username: objUser.username
+            username: objUser.username,
+            role: objUser.role
         }
     }
 }
@@ -48,11 +50,12 @@ class App extends Component {
                 <BrowserRouter>
                 <Header/>
                 <Route path='/' exact component={Home}/>
-                <Route path='/login' exact component={Login}/>
-                <Route path='/register' exact component={Register}/>
-                <Route path='/figuredetail/:id' exact component={FigureDetail}/>
-                <Route path='/figureedit' exact component={FigureEdit}/>
-                <Route path='/figurelist' exact component={FigureList}/>
+                <Route path='/login' component={Login}/>
+                <Route path='/register' component={Register}/>
+                <Route path='/figuredetail/:id' component={FigureDetail}/>
+                <Route path='/figureedit' component={FigureEdit}/>
+                <Route path='/figurelist' component={FigureList}/>
+                <Route path='/premium' component={Premium}/>
                 </BrowserRouter>
             </div>
         )

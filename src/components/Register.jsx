@@ -79,6 +79,7 @@ class Register extends Component {
                                 username: username,
                                 password: password,
                                 email: email
+                                
                             
                         }
                         ).then(() => {

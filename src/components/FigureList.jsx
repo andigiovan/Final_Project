@@ -88,7 +88,7 @@ class FigureList extends Component {
         return article.name.toLowerCase().includes(name.toLowerCase())
     })
     return hasilSearch.map((article) => {
-      if (this.props.role === "premium") {
+      if (this.props.role === "premium" || this.props.role === "admin") {
         return (
 
           <Link to={`/premiumfiguredetail/${article.id}`} className="link col-4 mt-4">

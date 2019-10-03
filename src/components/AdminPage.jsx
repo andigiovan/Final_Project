@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import { Button } from 'reactstrap';
+import Swal from "sweetalert2"
 
 const URL_API = 'http://localhost:4500/'
 
@@ -24,6 +26,25 @@ export class AdminPage extends Component {
         })
     }
 
+    onApprove = (id) => {
+        axios.patch(
+            "http://localhost:4500/auth/updaterole", 
+            {
+                id : id
+            } 
+            
+            
+          ).then(
+            this.getData(),
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              )
+          )
+          
+    }
+
     componentDidMount() {
         this.getData()
     }
@@ -37,6 +58,7 @@ export class AdminPage extends Component {
                     <td>{val.subs_name}</td>
                     <td><img src={URL_API + 'files/' + val.subs_image} width="100" alt={val.id}/></td>
                     <td>{val.id_user}</td>
+                    <td><Button onClick={() => this.onApprove(val.id_user)} outline color="success">success</Button>{' '}</td>
                 </tr>
             )    
         

@@ -85,7 +85,69 @@ class Header extends Component {
             
  </div>
         )
-        } else {
+        }
+        else if (this.props.role === "admin") {
+            return(
+              <div>
+            <Navbar color="light" light expand="md">
+              <Link className="navbar-brand logo" to="/">
+                  
+                  <h2 className="pb-0">
+                  <span></span>
+                  <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+                  
+                  <span className="ml-2">
+                  ParaTokoH
+                  </span> 
+                  </h2>
+
+                  
+              
+              </Link>
+              
+                <Nav className="ml-auto" navbar>
+                  
+                  
+                  <NavItem className="text-right">
+                  
+                  <NavLink to='/figurelist'>
+                      <Button className='topnav-right btn-sm' color="link">ParaTokoH</Button>
+                      </NavLink>
+                      <NavLink to='/figureedit'>
+                      <Button className='topnav-right btn-sm' color="link">Post</Button>
+                      </NavLink>
+                        <NavLink to='/adminpage'>
+                        <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
+                        </NavLink>
+                      
+                      
+                      <NavLink to='/login'>
+                          
+                      <Button className='topnav-right btn-sm' onClick={this.props.onLogoutUser} color="link">Log Out</Button>
+                      </NavLink>
+                      
+                  
+
+                      
+                    <Form className="mt-2 justify-content-end" inline>
+                    
+                    <input ref={(input)=>{this.keyword = input}} className="form-control-sm" type="text" name="Search" placeholder="Search Paratokoh" />
+                    <Button onClick={this.onSearchSubmit} className="ml-2 topnav-right btn-sm" outline color="primary">Search</Button>{' '}
+                    
+                      </Form>
+                      
+                      
+                  </NavItem>
+                </Nav>
+              
+            </Navbar>
+
+            
+          </div>
+            )
+        } 
+        
+        else {
           return (
             <div>
             <Navbar color="light" light expand="md">

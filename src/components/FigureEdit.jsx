@@ -11,7 +11,7 @@ class Testing extends React.Component {
 
     postArt = () => {
         axios.post(
-            "http://localhost:4000/art/articledetail",
+            "http://localhost:4500/art/articledetail",
             {
                 content: this.state.input
             }

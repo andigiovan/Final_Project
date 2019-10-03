@@ -4,7 +4,7 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Row } from 'reactstrap';
 
-class FigureDetail extends Component {
+class FigureDetailPlus extends Component {
 
     state = {
         articles: ""
@@ -15,7 +15,7 @@ class FigureDetail extends Component {
     componentDidMount() {
         
         axios.get(
-            `http://localhost:4500/art/figuredetail/${this.props.match.params.id}`,
+            `http://localhost:4500/art/premiumfiguredetail/${this.props.match.params.id}`,
            
             
 
@@ -61,4 +61,4 @@ class FigureDetail extends Component {
 
 }
 
-export default FigureDetail
+export default FigureDetailPlus

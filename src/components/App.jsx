@@ -7,9 +7,12 @@ import Login from './Login'
 import Home from "./Home"
 import Header from "./Header"
 import FigureDetail from "./FigureDetail"
+import FigureDetailPlus from "./FigureDetailPlus"
 import FigureEdit from "./FigureEdit"
 import FigureList from "./FigureList"
 import Premium from "./Premium"
+import PayPage from "./PayPage"
+import AdminPage from "./AdminPage"
 
 
 const keepLogin = (objUser) => {
@@ -53,9 +56,12 @@ class App extends Component {
                 <Route path='/login' component={Login}/>
                 <Route path='/register' component={Register}/>
                 <Route path='/figuredetail/:id' component={FigureDetail}/>
+                <Route path='/premiumfiguredetail/:id' component={FigureDetailPlus}/>
                 <Route path='/figureedit' component={FigureEdit}/>
                 <Route path='/figurelist' component={FigureList}/>
                 <Route path='/premium' component={Premium}/>
+                <Route path='/paypage' component={PayPage}/>
+                <Route path='/adminpage' component={AdminPage}/>
                 </BrowserRouter>
             </div>
         )

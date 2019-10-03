@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Card, Button, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Jumbotron, Container, Row, Col } from 'reactstrap';
 import axios from "axios"
+import {Link, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {updateRole} from "../actions/index"
   
 
 
@@ -10,11 +12,13 @@ class Premium extends Component {
 
   onPremium = () => {
   axios.patch(
-    "http://localhost:4000/auth/updaterole",  
+    "http://localhost:4500/auth/updaterole",  
     
     {
       id: this.props.id
   }
+  ).then(
+    this.props.updateRole()
   )
   }
   
@@ -53,7 +57,10 @@ class Premium extends Component {
           <CardText>
             Anda dapat mengakses konten premium milik kami, dan dengan berlangganan pula, 5% dari total pembayaran akan kami sumbangkan ke yayasan yatim piatu.
           </CardText>
-          <Button onClick={this.onPremium} color="primary">Berlangganan</Button>{' '}
+          <Link to="./paypage">
+          <Button className="btn btn-block" color="primary">Berlangganan</Button>{' '}
+          </Link>
+          
         </Card>
       </Col>
     </Row>
@@ -78,4 +85,4 @@ const mapStateTProps = state => {
 
 
 
-export default connect(mapStateTProps)(Premium)
+export default connect(mapStateTProps, {updateRole})(Premium)

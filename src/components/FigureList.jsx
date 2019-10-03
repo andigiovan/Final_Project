@@ -4,16 +4,18 @@ import { ListGroup, ListGroupItem, Card, Button, CardTitle, CardText, CardDeck,
   import {Link, NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from "axios"
+import Swal from 'sweetalert2'
 
 class FigureList extends Component {
 
   state = {
-    articles: []
+    articles: [],
+    articles_2: []
   }
 
   getData = () => {
     axios.get(
-      "http://localhost:4000/art/figurelist", 
+      "http://localhost:4500/art/figurelist", 
 
 
     ).then((res) => {
@@ -24,8 +26,29 @@ class FigureList extends Component {
     
   }
 
+  getList = () => {
+    axios.get(
+      "http://localhost:4500/art/premiumlist", 
+
+
+    ).then((res) => {
+      console.log(res.data);
+      this.setState({articles_2:res.data})
+    })
+  }
+
   componentDidMount() {
     this.getData()
+    this.getList()
+  }
+
+  swalAlert = () => {
+    Swal.fire({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Anda belum berlangganan',
+      footer: '<a href=/premium>klik disini untuk berlangganan</a>'
+    })
   }
 
   renderList = () => {
@@ -60,6 +83,55 @@ class FigureList extends Component {
 
   renderPremium = () => {
 
+    let name = this.props.keyword
+    let hasilSearch = this.state.articles_2.filter((article) => {
+        return article.name.toLowerCase().includes(name.toLowerCase())
+    })
+    return hasilSearch.map((article) => {
+      if (this.props.role === "premium") {
+        return (
+
+          <Link to={`/premiumfiguredetail/${article.id}`} className="link col-4 mt-4">
+        <Card>
+          <CardImg src={article.image} />
+          <CardBody>
+            <CardTitle>{article.name}</CardTitle>
+            <CardSubtitle>Card subtitle</CardSubtitle>
+            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+           
+          </CardBody>
+        </Card>
+        </Link>
+          
+  
+          
+          
+        
+        
+  
+        
+  
+          
+          )
+        }
+      else {
+        return(
+          <Link onClick={this.swalAlert} className="link col-4 mt-4">
+        <Card>
+          <CardImg src={article.image} />
+          <CardBody>
+            <CardTitle>{article.name}</CardTitle>
+            <CardSubtitle>Card subtitle</CardSubtitle>
+            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+           
+          </CardBody>
+        </Card>
+        </Link>
+        
+        )
+      }
+      
+    })
 
   }
 
@@ -90,7 +162,7 @@ class FigureList extends Component {
 
           <Row className="figure-list mt-4 justify-content-center">
          
-         {this.renderList()}
+         {this.renderPremium()}
        
        </Row>
 
@@ -148,7 +220,8 @@ class FigureList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    keyword: state.search.keyword
+    keyword: state.search.keyword,
+    role: state.auth.role
   }
 } 
 

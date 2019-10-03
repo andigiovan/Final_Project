@@ -35,7 +35,7 @@ class Register extends Component {
         
 
         axios.get(
-            "http://localhost:4000/auth/getdata",
+            "http://localhost:4500/auth/getdata",
 
             {
                 params: {
@@ -57,7 +57,7 @@ class Register extends Component {
             }
             else {
                 axios.get(
-                "http://localhost:4000/auth/getdata",
+                "http://localhost:4500/auth/getdata",
                 {
                     params: {
                         email: email
@@ -73,7 +73,7 @@ class Register extends Component {
                         axios.post(
                         
                         
-                        "http://localhost:4000/auth/register",
+                        "http://localhost:4500/auth/register",
                         {
                             
                                 username: username,

@@ -16,7 +16,7 @@ class Home extends Component {
 
   getData = () => {
     axios.get(
-      "http://localhost:4000/art/article", 
+      "http://localhost:4500/art/article", 
 
 
     ).then((res) => {

@@ -11,7 +11,7 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
     return (dispatch) => {
 
         axios.get(
-            "http://localhost:4000/auth/login",
+            "http://localhost:4500/auth/login",
             {
                 params: {
                     username: USERNAME,
@@ -74,4 +74,42 @@ export const searchKeyword = (keyword) => {
     }
 
 }
+
+export const updateRole = (ROLE, ID) => {
+    return(dispatch) => {
+        axios.get(
+            "http://localhost:4500/auth/getrole",
+            {
+                params: {
+                    role: ROLE,
+                    id: ID 
+                }
+            }
+        ).then(res => {
+            if (res.data.length === 1) {
+                let {id, role} = res.data[0]
+               
+                localStorage.setItem(
+                    "userData", 
+                    JSON.stringify({id,role})
+    
+                )
+                dispatch(
+                    {
+                        type: 'SUBSCRIBE_SUCCESS',
+                        payload: {
+                            id, role
+                        }
+                    }
+                )
+                
+            }
+            
+        })
+    }
+    
+    
+}
+
+
 

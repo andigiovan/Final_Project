@@ -13,6 +13,7 @@ import FigureList from "./FigureList"
 import Premium from "./Premium"
 import PayPage from "./PayPage"
 import AdminPage from "./AdminPage"
+import ApprovedPremium from "./ApprovedPremium"
 
 
 const keepLogin = (objUser) => {
@@ -62,6 +63,7 @@ class App extends Component {
                 <Route path='/premium' component={Premium}/>
                 <Route path='/paypage' component={PayPage}/>
                 <Route path='/adminpage' component={AdminPage}/>
+                <Route path='/approvedpremium' component={ApprovedPremium}/>
                 </BrowserRouter>
             </div>
         )

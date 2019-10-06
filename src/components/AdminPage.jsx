@@ -31,11 +31,21 @@ export class AdminPage extends Component {
             "http://localhost:4500/auth/updaterole", 
             {
                 id : id
+                
             } 
             
             
-          ).then(
-            this.getData(),
+          )
+          axios.patch(
+            "http://localhost:4500/completeapprove", 
+            {
+                id : id,
+                 
+                
+            } 
+          )
+          .then(
+            this.getData,
             Swal.fire(
                 'Good job!',
                 'You clicked the button!',
@@ -43,6 +53,20 @@ export class AdminPage extends Component {
               )
           )
           
+    }
+
+    approveButton = (id, isApproved) => {
+        if (isApproved) {
+            return(
+            <Button disabled outline color="success">success</Button>
+            )
+       
+        }
+        else {
+            return(
+            <Button onClick={() => {this.onApprove(id)}} outline color="success">success</Button>
+            )
+        }
     }
 
     componentDidMount() {
@@ -58,7 +82,9 @@ export class AdminPage extends Component {
                     <td>{val.subs_name}</td>
                     <td><img src={URL_API + 'files/' + val.subs_image} width="100" alt={val.id}/></td>
                     <td>{val.id_user}</td>
-                    <td><Button onClick={() => this.onApprove(val.id_user)} outline color="success">success</Button>{' '}</td>
+                    <td>{val.isApproved ? 'Selesai' : 'Belum selesai'}</td>
+                    <td>{this.approveButton(val.id_user, val.isApproved)}</td>
+                    
                 </tr>
             )    
         
@@ -78,6 +104,7 @@ export class AdminPage extends Component {
                                 <th>Deskripsi</th>
                                 <th>Bukti Transfer</th>
                                 <th>ID_User</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,5 +116,7 @@ export class AdminPage extends Component {
         )
     }
 }
+
+
 
 export default AdminPage

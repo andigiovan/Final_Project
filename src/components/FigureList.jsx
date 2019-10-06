@@ -43,12 +43,23 @@ class FigureList extends Component {
   }
 
   swalAlert = () => {
-    Swal.fire({
-      type: 'error',
-      title: 'Oops...',
-      text: 'Anda belum berlangganan',
-      footer: '<a href=/premium>klik disini untuk berlangganan</a>'
-    })
+    if (!this.props.name) {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Anda belum berlangganan',
+        footer: '<a href=/premium>klik disini untuk berlangganan</a>'
+      })
+    }
+    else {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Anda belum berlangganan',
+        footer: '<a href=/login>Anda harus login jika ingin berlangganan</a>'
+      })
+    }
+    
   }
 
   renderList = () => {
@@ -114,6 +125,7 @@ class FigureList extends Component {
           
           )
         }
+        
       else {
         return(
           <Link onClick={this.swalAlert} className="link col-4 mt-4">
@@ -220,6 +232,7 @@ class FigureList extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    name : state.auth.name,
     keyword: state.search.keyword,
     role: state.auth.role
   }

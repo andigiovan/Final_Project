@@ -31,35 +31,32 @@ class Login extends Component {
     render() {
         if (!this.props.user_name) {
             return (
-                <div>
-    
-                    <h1 className="ml-4 border-bottom shadow-sm logo">
-                        Log In
-                    </h1>
+               <div>
+                        <h1 className="border-bottom shadow-sm logo col-12">
+                            Log In
+                        </h1>
+             
+                    
+                        <div className="form col-lg-3 col-md-4 col-sm-4">
+                            
+                                <div className="mt-5 mb-2">Username</div>
+                            
+                                <input ref={(input) => {this.username = input}} className="form-control-sm w-100 mb-2" type="text" name="username" placeholder="Enter your username" />
+                            
                 
-                <Form>
-                
-                <FormGroup>
-                <div className="col-sm-3">
-                <Label className="ml-2 mt-5">Username</Label>
+                            
+                                <div className="mb-2">Password</div>
+                            
+                            
+                            <input ref={(input) => {this.password = input}} className="form-control-sm w-100" type="password" name="password" placeholder="Enter your password" />
+                            <div>
+                                <Button className="mt-4 btn btn-block btn-primary font-weight-bold" color="primary" size="sm" active onClick={this.onLoginClick}>Log In</Button>
+                            </div>
+                        
+                        </div>
+                   
                 </div>
-                <div className= "ml-3">
-                <input ref={(input) => {this.username = input}} className="ml-2 form-control-sm width" type="text" name="username" placeholder="Enter your username" />
-                </div>
-                </FormGroup>
-                
-                <FormGroup>
-                <div className="col-sm-3">
-                <Label className="ml-2">Password</Label>
-                </div>
-                <div className="ml-3">
-                <input ref={(input) => {this.password = input}} className="ml-2 form-control-sm width" type="password" name="password" placeholder="Enter your password" />
-                <Button className=" ml-2 mt-4 btn align-content-between btn-block font-weight-bold width" color="primary" onClick={this.onLoginClick} size="sm" active>Log In</Button>{' '}
-                </div>
-                </FormGroup>
-                </Form>
-                
-                </div>
+              
              
             )
         } else {

@@ -59,81 +59,57 @@ const URL_API = 'http://localhost:4500/'
 
     render() {
         return (
-            <div>
-                <Card className="shadow-none">
-        <CardHeader >
-          <div className="logo font-weight-bold ml-2" style={{fontSize: "20px"}}>
-          Transfer Bank
-          </div>
-          
-          
-          </CardHeader>
-        
-        <CardBody>
-        <div className="row">
-          <CardText className="ml-4">
-          <h5 className="font-weight-normal mb-4 ml-1">Bank Tujuan</h5>
-          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle className="ml-1" caret>
-          Pilih Bank
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem >Bank Bca</DropdownItem>
-          <DropdownItem>Bank Mandiri</DropdownItem>
-          
-          
-        </DropdownMenu>
-      </Dropdown>
-      
-          </CardText>
-          
-          
-          
-          
-          <Card className="col-4 ml-auto mr-5 shadow-none">
-        <CardHeader>Ringkasan Pembayaran</CardHeader>
-        <CardBody>
-          
-          <CardText>
-            <div className="row">
-              <div>
-              Total Transaksi
-              </div>
-            
-            </div>
-            
+          <div>
+            <Card className="shadow-none">
+              <CardHeader >
+                <div className="logo font-weight-bold col-12" style={{fontSize: "20px"}}>
+                Transfer Bank
+                </div>
+              </CardHeader>
 
-          </CardText>
-          
+              <CardBody className="row">
+                <div className="col-4">
+                  <div className="mb-2">
+                   Bank Tujuan
+                    <select className="form-control ">
+                      <option >Bank Bca</option>
+                      <option>Bank Mandiri</option>
+                    </select>
+                  </div>
+                  <div>
+                    Nama Rekening
+                    <input type="text" className="form-control mb-3" onChange={e => this.setState({subsName: e.target.value})}/>  
+                  </div>
+                  <div>
+                    <Button onClick={() => this.refs.fileBtn.click()} className="mr-3">Upload bukti pembayaran</Button>
+                    <Button onClick={this.onSubmit}>Submit</Button>
+                    <input type="file" ref="fileBtn" className="d-none" onChange={e => this.setState({selectedFile: e.target.files[0]})} />
+                  </div>
+                </div>
 
-        </CardBody>
-        <CardFooter>Footer</CardFooter>
-      </Card>
-      
-          </div>
-          <div className="col-3">
-          <Label>
-          <input type="text" className="form-control mb-3" onChange={e => this.setState({subsName: e.target.value})}/>  
-          </Label>
-          
-          </div>
-          <span className="mt-0 ml-3">
-          <Button onClick={() => this.refs.fileBtn.click()} className="mr-3">Upload bukti pembayaran</Button>
-          <Button onClick={this.onSubmit}>Submit</Button>
-          <input type="file" ref="fileBtn" className="d-none" onChange={e => this.setState({selectedFile: e.target.files[0]})} />
-          </span>
-        </CardBody>
-        
+                <div className="col-4 offset-4">
+                  <Card className="shadow-none">
+                    <CardHeader>Ringkasan Pembayaran</CardHeader>
+                    <CardBody>
+                      <CardText className="row">
+                        <div className="ml-3">Total Transaksi</div>
+                        <div className="ml-auto mr-3">Rp 10.000</div>
+                      </CardText>
+                      <CardText className="row">
+                        <div className="ml-3">Biaya Layanan</div>
+                        <div className="ml-auto mr-3">Gratis</div>
+                      </CardText>
+                    </CardBody>
+                    <CardFooter className="row">
+                      <div className="ml-3">Total Tagihan</div>
+                      <div className="mr-3 ml-auto">Rp 10.000</div>
+                    </CardFooter>
+                  </Card>
+                </div>
 
-        
-        
-      </Card>
-          
-          
-          
-          
-          
-            </div>
+              </CardBody>
+            </Card>
+          </div>
         )
     }
 

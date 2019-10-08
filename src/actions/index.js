@@ -28,6 +28,14 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
                   })
                 
             }
+            else if(res.data[0].isVerified === 0) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Akun Anda belum terverifikasi',
+                    footer: '<p>Silahkan coba lagi</p>'
+                  })
+            }
             else {
                 let {id, username, role} = res.data[0]
                

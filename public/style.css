@@ -176,7 +176,8 @@ background-color: rgb(206, 242, 224) !important
   background: url("https://content.thriveglobal.com/wp-content/uploads/2018/10/GettyImages-1060797334.jpg") top center;
 }
 
-
-
+.modal-width {
+  margin: 100px !important
+}
 
 

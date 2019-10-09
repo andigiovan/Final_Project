@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from "axios"
 import { Button } from 'reactstrap';
 import Swal from "sweetalert2"
+import ModalImage from "react-modal-image";
+
 
 const URL_API = 'http://localhost:4500/'
 
@@ -80,10 +82,12 @@ export class AdminPage extends Component {
                 <tr>
                     <td>{val.id}</td>
                     <td>{val.subs_name}</td>
-                    <td><img src={URL_API + 'files/' + val.subs_image} width="100" alt={val.id}/></td>
+                    <td><a href={URL_API + 'files/' + val.subs_image} target="_blank">
+                    <img src={URL_API + 'files/' + val.subs_image} width="100" alt={val.id}/></a></td>
                     <td>{val.id_user}</td>
                     <td>{val.isApproved ? 'Selesai' : 'Belum selesai'}</td>
                     <td>{this.approveButton(val.id_user, val.isApproved)}</td>
+                    
                     
                 </tr>
             )    

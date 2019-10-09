@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import crypto from "crypto"
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 
@@ -20,16 +21,19 @@ class Register extends Component {
         success: ''
     }
         
-
+    encryptMyPass = (password) => {
+        let result = crypto.createHmac("sha256", "jc10").update(password).digest("hex")
+        return result
+    }
     
 
     onRegisterClick = (e) => {
         e.preventDefault()
-        this.setState({loading: true})
+        this.setState({loading: true})  
         
 
         let username = this.username.value
-        let password = this.password.value
+        let password = this.encryptMyPass(this.password.value)
         let email = this.email.value
 
         

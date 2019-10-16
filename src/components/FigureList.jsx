@@ -232,11 +232,11 @@ class FigureList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    name : state.auth.name,
     keyword: state.search.keyword,
     role: state.auth.role
   }
 } 
+    
 
 export default connect(mapStateToProps)(FigureList)
 

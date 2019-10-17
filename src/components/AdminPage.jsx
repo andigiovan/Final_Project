@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from "axios"
 import { Button } from 'reactstrap';
 import Swal from "sweetalert2"
-import ModalImage from "react-modal-image";
 
 
 const URL_API = 'http://localhost:4500/'

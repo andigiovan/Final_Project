@@ -5,6 +5,8 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Row, Label, Input, Button } from 'reactstrap';
 import users from "../helpers/images/users.png"
+var moment = require('moment')
+
 
 class FigureDetail extends Component {
 
@@ -56,7 +58,8 @@ class FigureDetail extends Component {
             {
                 username: this.props.name,
                 comment: inputComment,
-                articleid:  this.props.match.params.id
+                articleid:  this.props.match.params.id,
+                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss.SSS")
             }
 
          
@@ -77,7 +80,14 @@ class FigureDetail extends Component {
             return (
                 
                 <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
-                <CardTitle className="ml-3">{val.username}</CardTitle>
+                <CardTitle className="ml-3">
+                
+                {val.username}
+                <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                { moment(val.created_at).fromNow()  }
+                </span>
+                              
+                </CardTitle>
                 <CardText className="ml-3">{val.comment}</CardText>
                 </Card>
        

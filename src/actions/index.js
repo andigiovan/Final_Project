@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Cookies from 'universal-cookie' 
 import {withRouter} from 'react-router-dom'
 
     
@@ -38,10 +39,10 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
             }
             else {
                 let {id, username, role} = res.data[0]
-               
-                localStorage.setItem(
+                const cookies = new Cookies()
+                cookies.set(
                     "userData", 
-                    JSON.stringify({id, username, role})
+                     {id, username, role}
 
                 )
                 dispatch(
@@ -64,8 +65,8 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
 }
 
 export const onLogoutUser = () => {
-
-    localStorage.removeItem("userData")
+    const cookies = new Cookies
+    cookies.remove("userData")
 
     return {
         type: "LOGOUT_SUCCESS"
@@ -96,10 +97,10 @@ export const updateRole = (ROLE, ID) => {
         ).then(res => {
             if (res.data.length === 1) {
                 let {id, role} = res.data[0]
-               
-                localStorage.setItem(
+                const cookies = new Cookies()
+                cookies.set(
                     "userData", 
-                    JSON.stringify({id,role})
+                     {id,role}
     
                 )
                 dispatch(

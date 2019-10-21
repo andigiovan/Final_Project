@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Route, BrowserRouter} from 'react-router-dom'
 import {connect} from  'react-redux'
+import Cookies from "universal-cookie"
 
 import Register from './Register'
 import Login from './Login'
@@ -15,7 +16,6 @@ import PayPage from "./PayPage"
 import AdminPage from "./AdminPage"
 import ApprovedPremium from "./ApprovedPremium"
 import LinkVerify from "./LinkVerify"
-
 
 const keepLogin = (objUser) => {
     
@@ -38,7 +38,8 @@ class App extends Component {
 
     componentDidMount() {
         // check local storage
-        let userStorage = JSON.parse(localStorage.getItem('userData'))
+        const cookies = new Cookies()
+        let userStorage = cookies.get('userData')
         
         if(userStorage){
             // kirim ke redux

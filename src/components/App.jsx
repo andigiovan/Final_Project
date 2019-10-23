@@ -16,6 +16,7 @@ import PayPage from "./PayPage"
 import AdminPage from "./AdminPage"
 import ApprovedPremium from "./ApprovedPremium"
 import LinkVerify from "./LinkVerify"
+import Footer from "./Footer"
 
 const keepLogin = (objUser) => {
     
@@ -67,6 +68,7 @@ class App extends Component {
                 <Route path='/adminpage' component={AdminPage}/>
                 <Route path='/approvedpremium' component={ApprovedPremium}/>
                 <Route path='/linkverify' component={LinkVerify}/>
+                <Footer/>
                 </BrowserRouter>
             </div>
         )

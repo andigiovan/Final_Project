@@ -49,7 +49,7 @@ class Login extends Component {
                             
                             <input ref={(input) => {this.password = input}} className="form-control-sm w-100" type="password" name="password" placeholder="Enter your password" />
                             <div>
-                                <Button className="mt-4 btn btn-block btn-primary font-weight-bold" color="primary" size="sm" active onClick={this.onLoginClick}>Log In</Button>
+                                <Button className="mt-4 btn btn-block btn-primary font-weight-bold mb-3" color="primary" size="sm" active onClick={this.onLoginClick}>Log In</Button>
                             </div>
                         
                         </div>

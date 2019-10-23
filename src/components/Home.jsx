@@ -199,7 +199,7 @@ class Home extends Component {
                 </a>
                 
         </CardBody>
-        <CardFooter>Teks tersedia di bawah Lisensi Atribusi-BerbagiSerupa Creative Commons; ketentuan tambahan mungkin berlaku. Lihat Ketentuan Penggunaan untuk lebih jelasnya.</CardFooter>
+        
       </Card>
 
           </div>

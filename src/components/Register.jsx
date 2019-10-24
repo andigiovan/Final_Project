@@ -52,7 +52,7 @@ class Register extends Component {
     
         ).then((res) => {
             console.log(res.data.length);
-            if (username == "" && password == "" && email == "") {
+            if (username == "" || password == "" || email == "") {
                 this.setState({loading:false, error:"Data tidak boleh kosong"})
             }
             

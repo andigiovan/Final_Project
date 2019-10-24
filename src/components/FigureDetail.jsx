@@ -3,20 +3,29 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Row, Label, Input, Button } from 'reactstrap';
-import users from "../helpers/images/users.png"
+    CardTitle, CardText, Row, Label, Input, Button, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import users from "../helpers/images/userblue.png"
+import Dropdown from "./Dropdown"
+import Swal from 'sweetalert2'
 var moment = require('moment')
+
+
 
 
 class FigureDetail extends Component {
 
+  
+
     state = {
         articles: "",
         comments: [],
-        inputComment: []
-
+        inputComment: [],
+        
+        
             
     }
+
+
 
     getArticle = () => {
         axios.get(
@@ -53,19 +62,31 @@ class FigureDetail extends Component {
 
         let inputComment = this.state.inputComment
 
-        axios.post(
-            `http://localhost:4500/comment/addcomment`,
-            {
-                username: this.props.name,
-                comment: inputComment,
-                articleid:  this.props.match.params.id,
-                created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss.SSS")
-            }
+        if (inputComment == "") {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Anda belum berlangganan',
+                footer: '<a href=/premium>klik disini untuk berlangganan</a>'
+              })
+        }
+        else {
+            axios.post(
+                `http://localhost:4500/comment/addcomment`,
+                {
+                    username: this.props.name,
+                    comment: inputComment,
+                    articleid:  this.props.match.params.id,
+                    created_at: moment(new Date()).format("YYYY-MM-DD HH:mm:ss.SSS")
+                }
+    
+             
+            ).then((res) => {
+                this.getComment()
+            })
+        }
 
-         
-        ).then((res) => {
-            this.getComment()
-        })
+        
     }
     
     componentDidMount() {
@@ -78,24 +99,38 @@ class FigureDetail extends Component {
 
         return this.state.comments.map((val) => {
             return (
+               
                 
                 <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
-                <CardTitle className="ml-3">
                 
-                {val.username}
-                <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
-                { moment(val.created_at).fromNow()  }
-                </span>
-                              
+                <CardTitle className="ml-3 font-weight-bold">
+                    {val.username}
+                    <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                    { moment(val.created_at).fromNow()}
+                    </span>
+                    <span className="border-right p-1 h-25"></span>
+                    <Button className="m-1 p-0" style={{color: "gray"}} color="link" size="sm" onClick={() => {this.onEditButton()}}>Edit</Button>
+                    <Button className="p-0" style={{color: "gray"}} color="link" size="sm" onClick={()  => {this.onDeleteButton()}}>Delete</Button>
                 </CardTitle>
+                
+    
                 <CardText className="ml-3">{val.comment}</CardText>
                 </Card>
+                
+               
+                   )
+               })
+           }
+                
+                
+               
+                
+                              
+                
+               
+               
        
                 
-        
-            )
-        })
-    }
 
 
     // this.state.articles[0].imagedetail
@@ -106,6 +141,7 @@ class FigureDetail extends Component {
         if (this.props.name) {
             return (
                 <div>
+                    
                     <Card className="shadow-none">
             <CardHeader></CardHeader>
             <CardBody>
@@ -126,23 +162,34 @@ class FigureDetail extends Component {
             
           </Card>
           
+         
           
-          <Card className="mt-4 w-25 container shadow-none">
-            <CardHeader>
-            <Label for="exampleText">Kolom Komentar</Label>
-            </CardHeader>
+          <Card className="mt-4 container shadow-none text-center" style={{backgroundColor: "rgb(245, 250, 255)", width: "300px", padding: "10px"}}>
+            
+            <Label className="font-weight-bold pt-2" style={{fontSize: "20px"}}>Kolom Komentar</Label>
+           
             </Card>
+
+            <div className="border-top border-dark mt-4"></div>
     
-                <div className="row mt-5 mr-2 justify-content-center">
-                    <img className="pr-1"src={users} style={{width: "50px"}}/>
-              <Input onChange={e => this.setState({inputComment: e.target.value})} on style={{width: "500px"}} placeholder="Komentar Anda..." type="textarea" name="text" id="exampleText" />
+                <div className="row mt-4 mr-2 justify-content-center">
+                    <img className="pr-1"src={users} style={{width: "60px"}}/>
+              <Input onChange={e => this.setState({inputComment: e.target.value})} style={{width: "500px"}} placeholder="Komentar Anda..." type="textarea" name="text" id="exampleText" />
               
                 </div>
-                <Button onClick={this.onSubmitComment} className="mt-3" style={{marginLeft: "610px"}} size="sm" color="success">Submit</Button>{' '}
+                <Button onClick={this.onSubmitComment} className="mt-3" style={{marginLeft: "610px"}} size="sm" outline color="primary">Submit</Button>{' '}
                 
-                {this.renderComment()}            
-    
+                <div>
+                <div className="font-weight-bold" style={{marginLeft: "150px"}}>
+                {this.state.comments.length} Komentar
                 </div>
+                <div className="mb-3">
+                {this.renderComment()}
+                </div>           
+                </div>
+                
+                </div>
+
           
           
     
@@ -175,15 +222,33 @@ class FigureDetail extends Component {
           </Card>
           
           
-          <Card className="mt-4 w-25 container shadow-none">
-            <CardHeader>
-            <Label for="exampleText">Kolom Komentar</Label>
-            </CardHeader>
+          <Card className="mt-4 container shadow-none text-center" style={{backgroundColor: "rgb(245, 250, 255)", width: "300px", padding: "10px"}}>
+            
+            <Label className="font-weight-bold pt-2" style={{fontSize: "20px"}}>Kolom Komentar</Label>
+           
             </Card>
+
+            <div className="border-top border-dark mt-4"></div>
     
-                {this.renderComment()}            
-                
+                <div>
+                <div className="font-weight-bold mt-3" style={{marginLeft: "150px"}}>
+                {this.state.comments.length} Komentar
                 </div>
+                <div className="mb-3">
+                {this.renderComment()}
+                </div>
+                            
+                </div>            
+                
+                
+                
+              
+               
+                </div>
+               
+                
+
+                
                 
     
           

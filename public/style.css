@@ -180,4 +180,11 @@ background-color: rgb(206, 242, 224) !important
   margin: 100px !important
 }
 
+.comment-border {
+  
+    border-style:solid !important;
+    border-width:thin !important
+
+}
+
 

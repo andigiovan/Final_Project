@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 
 const URL_API = 'http://localhost:4500/'
 
-    class PayPage extends Component {
+class PayPage extends Component {
 
     constructor(props) {
         super(props);

@@ -20,6 +20,11 @@ class FigureDetail extends Component {
         articles: "",
         comments: [],
         inputComment: [],
+        selectedId: 0,
+        editedComment: ""
+        
+        
+        
         
         
             
@@ -57,6 +62,59 @@ class FigureDetail extends Component {
         })
     }
 
+    onEditComment = (id, comment) => {
+        this.setState({
+            selectedId: id,
+            editedComment : comment,
+            
+            
+        })
+        
+    }
+
+    onEditCancel = () => {
+        this.setState({selectedId: 0})
+    }
+
+    onEditSubmit = () => {
+        axios.patch (
+        `http://localhost:4500/comment/editcomment`, 
+        {
+           id: this.state.selectedId,
+           comment: this.state.editedComment,
+           
+        }
+        )
+        .then((res) => {
+            
+            axios.patch (
+                `http://localhost:4500/comment/updatecomment`, 
+                {
+                   id: this.state.selectedId
+                   
+                }
+                )
+        })
+        .then((res) => {
+            this.getComment()
+            this.setState({selectedId: 0})
+        }).catch((err) => {
+            console.log(err)
+            
+        })
+    }
+
+
+
+    onDeleteComment = (id) => {
+        axios.delete(
+        `http://localhost:4500/comment/deletecomment/${id}`  
+        )
+        .then((res) => {
+        this.getComment()
+        })
+    }
+
     
     onSubmitComment = () => {
 
@@ -66,7 +124,7 @@ class FigureDetail extends Component {
             Swal.fire({
                 type: 'error',
                 title: 'Oops...',
-                text: 'Anda belum berlangganan',
+                text: 'Komen kosong',
                 footer: '<a href=/premium>klik disini untuk berlangganan</a>'
               })
         }
@@ -98,29 +156,115 @@ class FigureDetail extends Component {
     renderComment = () => {
 
         return this.state.comments.map((val) => {
-            return (
+            if (val.id !== this.state.selectedId) {
+                if (this.props.name === val.username) {
+                    return (
+                   
+                    
+                        <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
+                        
+                        <CardTitle className="ml-3 font-weight-bold">
+                            {val.username}
+                            <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                            { moment(val.created_at).fromNow()} {val.edited}
+                            </span>
+                            <span className="border-right p-1 h-25"></span>
+                            <Button className="m-1 p-0" style={{color: "gray"}} color="link" size="sm" onClick={() => {this.onEditComment(val.id, val.comment, val.created_at)}}>Edit</Button>
+                            <Button className="p-0" style={{color: "gray"}} color="link" size="sm" onClick={()  => {this.onDeleteComment(val.id)}}>Delete</Button>
+                        </CardTitle>
+                        
+            
+                        <CardText className="ml-3 mb-1">{val.comment}</CardText>
+                        </Card>
+                        
+                       
+                           )
+               
+                }
+                else if (this.props.role === "admin") {
+                    return (
+                   
+                    
+                        <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
+                        
+                        <CardTitle className="ml-3 font-weight-bold">
+                            {val.username}
+                            <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                            { moment(val.created_at).fromNow()} 
+                            </span>
+                            <span className="border-right p-1 h-25"></span>
+                            <Button className="ml-1 p-0" style={{color: "gray"}} color="link" size="sm" onClick={()  => {this.onDeleteComment(val.id)}}>Delete</Button>
+                        </CardTitle>
+                            
+                        
+            
+                        <CardText className="ml-3 mb-1">{val.comment}</CardText>
+                        </Card>
+                        
+                       
+                           )
+                }
+                else if (!this.props.name) {
+                    return (
+                        
+                        <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
+                        
+                        <CardTitle className="ml-3 font-weight-bold">
+                            {val.username}
+                            <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                            { moment(val.created_at).fromNow()}
+                            </span>
+                            
+                        </CardTitle>
+                            <CardText className="ml-3 mb-1">{val.comment}</CardText>
+                        </Card>
+                            
+                                )
+                     }
+            }
+
+            
+                 else {
+
+                    return (
                
                 
-                <Card className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
-                
-                <CardTitle className="ml-3 font-weight-bold">
-                    {val.username}
-                    <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
-                    { moment(val.created_at).fromNow()}
-                    </span>
-                    <span className="border-right p-1 h-25"></span>
-                    <Button className="m-1 p-0" style={{color: "gray"}} color="link" size="sm" onClick={() => {this.onEditButton()}}>Edit</Button>
-                    <Button className="p-0" style={{color: "gray"}} color="link" size="sm" onClick={()  => {this.onDeleteButton()}}>Delete</Button>
-                </CardTitle>
-                
-    
-                <CardText className="ml-3">{val.comment}</CardText>
-                </Card>
-                
+                        <Card key={val.id} className="w-75 mt-4 shadow-none" style={{marginLeft: "150px"}}>
+                        
+                        <CardTitle className="ml-3 font-weight-bold">
+                            {val.username}
+                            <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
+                            { moment(val.created_at).fromNow()}
+                            </span>
+                            <span className="border-right p-1 h-25"></span>
+                            <Button className="m-1 p-0" style={{color: "gray"}} color="link" size="sm" onClick={() => {this.onEditSubmit()}}>Submit</Button>
+                            <Button className="p-0" style={{color: "gray"}} color="link" size="sm" onClick={()  => {this.onEditCancel()}}>Cancel</Button>
+                        </CardTitle>
+                        
+            
+                        <CardText className="ml-3 mb-1">
+                                <input 
+                                type="text" 
+                                className="form-control" 
+                                value={this.state.editedComment} 
+                                onChange = {(e) => this.setState({editedComment: e.target.value})}
+                            />
+                        
+                        </CardText>
+                        </Card>
+                        
+                       
+                           )
+
+                 }
+     
+                    })
+               }
+                        
                
-                   )
-               })
-           }
+                    
+        
+                    
                 
                 
                
@@ -267,7 +411,9 @@ class FigureDetail extends Component {
 
 const mapStateToProps = (state) => {
     return {
+      id : state.auth.id,
       name : state.auth.username,
+      role : state.auth.role
     }
 } 
      

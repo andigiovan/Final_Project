@@ -6,6 +6,7 @@ import {
   import facebook from "../helpers/images/facebook.png"
   import twitter from "../helpers/images/twitter.png"
   import instagram from "../helpers/images/instagram.png"
+  import Logo from "../helpers/images/Paratokoh.png"
   import {Link} from 'react-router-dom'
 
 
@@ -18,7 +19,7 @@ export class Footer extends Component {
                 <div className="navbar-brand logo" style={{marginLeft: "70px"}}>
                   <div>
                   <h2 className="pb-0">
-                  <img className="image mb-4 ml-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+                  <img className="image mb-4 ml-4" src={Logo} alt=""/>
                     <span className="ml-2">
                      ParaTokoH
                     <div className="border border-bottom border-light">

@@ -14,6 +14,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
+    import Logo from "../helpers/images/Paratokoh.png"
     import {connect} from 'react-redux'
     import {onLogoutUser, searchKeyword} from '../actions/index'
 
@@ -41,7 +42,7 @@ class Header extends Component {
                   
         <h2 className="pb-0">
         
-        <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+        <img className="image mb-4" src={Logo} alt=""/>
         
           <span className="ml-2">
         ParaTokoH
@@ -94,7 +95,7 @@ class Header extends Component {
                   
                   <h2 className="pb-0">
                   <span></span>
-                  <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+                  <img className="image mb-4" src={Logo} alt=""/>
                   
                   <span className="ml-2">
                   ParaTokoH
@@ -154,7 +155,7 @@ class Header extends Component {
                   
                   <h2 className="pb-0">
                   <span></span>
-                  <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+                  <img className="image mb-4" src={Logo} alt=""/>
                   
                   <span className="ml-2">
                   ParaTokoH
@@ -214,7 +215,7 @@ class Header extends Component {
                   
                   <h2 className="pb-0">
                   <span></span>
-                  <img className="image mb-4" src="https://conferencephilosophyoflaw.files.wordpress.com/2012/12/logo_szare_duze2.png" alt=""/>
+                  <img className="image mb-4" src={Logo} alt=""/>
                   
                   <span className="ml-2">
                   ParaTokoH

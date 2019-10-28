@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem, Card, Button, CardTitle, CardText, CardDeck,
   CardSubtitle, CardBody, CardImg, CardHeader, CardFooter, Row,} from 'reactstrap';
   import {Link, NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
+import star from "../helpers/images/goldenstar.png"
 import axios from "axios"
 import Swal from 'sweetalert2'
 
@@ -168,8 +169,18 @@ class FigureList extends Component {
         </Card>
 
         <Card className="card-list shadow-none m-3">
-          <CardHeader className="tokoh-klasik">
-          <h3 className="logo text-center mt-1 mb-0 pt-2">Tokoh musik abad klasik</h3>
+          <CardHeader className="tokoh-klasik p-0">
+      
+         
+            
+            <h3 className="logo text-center mt-3 mb-1">
+            <img className="mb-3" style={{width: "40px"}} src={star}/>
+            Tokoh musik abad klasik
+            
+            </h3>
+        
+         
+          
           </CardHeader>
 
           <Row className="figure-list mt-4 justify-content-center">

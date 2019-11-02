@@ -44,7 +44,7 @@ class FigureList extends Component {
   }
 
   swalAlert = () => {
-    if (!this.props.name) {
+    if (this.props.name) {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
@@ -56,7 +56,7 @@ class FigureList extends Component {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Anda belum berlangganan',
+        text: 'Anda belum Login',
         footer: '<a href=/login>Anda harus login jika ingin berlangganan</a>'
       })
     }
@@ -72,13 +72,13 @@ class FigureList extends Component {
     return hasilSearch.map((article) => {
       return (
 
-        <Link to={`/figuredetail/${article.id}`} className="link col-4 mt-4">
+        <Link to={`/figuredetail/${article.id}`} className="col-4 mt-4" style={{textDecoration: "none", color: "black"}}>
       <Card>
         <CardImg src={article.image} />
         <CardBody>
-          <CardTitle>{article.name}</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <CardTitle className="text-center logo font-weight-bold" style={{fontSize: "20px"}}>{article.name}</CardTitle>
+          <CardText>{article.text}</CardText>
+          
          
         </CardBody>
       </Card>
@@ -103,13 +103,13 @@ class FigureList extends Component {
       if (this.props.role === "premium" || this.props.role === "admin") {
         return (
 
-          <Link to={`/premiumfiguredetail/${article.id}`} className="link col-4 mt-4">
+          <Link to={`/premiumfiguredetail/${article.id}`} className="col-4 mt-4" style={{textDecoration: "none", color: "black"}}>
         <Card>
           <CardImg src={article.image} />
           <CardBody>
-            <CardTitle>{article.name}</CardTitle>
-            <CardSubtitle>Card subtitle</CardSubtitle>
-            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+            <CardTitle className="text-center logo font-weight-bold" style={{fontSize: "20px"}}>{article.name}</CardTitle>
+            <CardText>{article.text}</CardText>
+            
            
           </CardBody>
         </Card>
@@ -129,13 +129,13 @@ class FigureList extends Component {
         
       else {
         return(
-          <Link onClick={this.swalAlert} className="link col-4 mt-4">
-        <Card>
+          <Link onClick={this.swalAlert} className="link col-4 mt-4" style={{textDecoration: "none", color: "black"}}>
+        <Card className="align-items-center" >
           <CardImg src={article.image} />
           <CardBody>
-            <CardTitle>{article.name}</CardTitle>
-            <CardSubtitle>Card subtitle</CardSubtitle>
-            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+            <CardTitle className="text-center logo font-weight-bold" style={{fontSize: "20px"}}>{article.name}</CardTitle>
+            
+            <CardText>{article.text}</CardText>
            
           </CardBody>
         </Card>
@@ -243,6 +243,7 @@ class FigureList extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    name: state.auth.username,
     keyword: state.search.keyword,
     role: state.auth.role
   }

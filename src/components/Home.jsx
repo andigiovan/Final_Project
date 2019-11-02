@@ -21,7 +21,7 @@ class Home extends Component {
 
     ).then((res) => {
       console.log(res.data);
-      this.setState({articles:res.data})
+      this.setState({articles:res.data.slice(0, 4)})
     })
     
     
@@ -40,7 +40,7 @@ class Home extends Component {
       <Col key={article.id} sm="6">
             
         
-        <Link to={`/figuredetail/${article.id}`} className="link"> 
+        <Link to={`/figuredetail/${article.id}`} style={{textDecoration: "none", color: "black"}}> 
         <Card body className="ml-3 mr-3 mb-3">
         
             

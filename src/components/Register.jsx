@@ -164,8 +164,13 @@ class Register extends Component {
             <Label className="ml-2">Email Adress</Label>
             </div>
             <div className="ml-3">
-            <input ref={(input) => {this.email = input}} className="ml-2 form-control-sm width" type="text" name="email" placeholder="Enter your email adress" />
-            <Button onClick={this.onRegisterClick} className=" ml-2 mt-4 btn align-content-between btn-block font-weight-bold width" color="primary" size="sm" active>Create Account</Button>{' '}
+            <input ref={(input) => {this.email = input}} className="ml-2 form-control-sm width" type="email" name="email" placeholder="Enter your email adress" />
+            <button onClick={this.onRegisterClick} className=" ml-2 mt-4 btn align-content-between btn-block font-weight-bold width buttonLogin">
+                
+                <span className="text-white loginRegister">
+                Create Account
+                </span>
+                </button>
             </div>
             </FormGroup>
             </Form>

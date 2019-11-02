@@ -180,6 +180,19 @@ background-color: rgb(206, 242, 224) !important
   margin: 100px !important
 }
 
+.buttonLogin {
+  font-size: 10px !important;
+  background-color: rgb(0, 98, 204) !important;
+
+}
+
+.loginRegister {
+  font-size: 13px !important;
+}
+
+.carddetail {
+  font-family: Arial, Helvetica, sans-serif !important
+}
 
 
 

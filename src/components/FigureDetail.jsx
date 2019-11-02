@@ -23,12 +23,12 @@ class FigureDetail extends Component {
         selectedId: 0,
         editedComment: ""
         
+    }
         
         
         
         
             
-    }
 
 
 
@@ -141,6 +141,8 @@ class FigureDetail extends Component {
              
             ).then((res) => {
                 this.getComment()
+                
+                
             })
         }
 
@@ -304,33 +306,33 @@ class FigureDetail extends Component {
                          <CardText>{ ReactHtmlParser(this.state.articles.content) }</CardText>
                          </div>
                          <div className="col-3">
-                         <Card className="shadow-none">
-                          <span className="text-center font-weight-bold">{this.state.articles.name}</span>
+                         <Card className="shadow-none" outline color="secondary">
+                          <span className="text-center font-weight-bold logo border border-secondary bg-info m-2" style={{fontSize: "18px"}}>{this.state.articles.name}</span>
                    <a href={this.state.articles.imagedetail}>
-                   <CardImg className="text-center pl-4 pt-2" style={{width: "270px"}} src={this.state.articles.imagedetail} />
+                   <CardImg className="text-center pl-3" style={{width: "270px"}} src={this.state.articles.imagedetail} />
                    </a>
                    <CardBody>
                      
-                     <CardText>
-                         <span className="mr-2 font-weight-bold logo">Lahir
+                     <CardText style={{fontSize: "15px"}}>
+                         <span className="mr-2 font-weight-bold carddetail">Lahir
                          
                          </span>
-                         <span className="logo">{this.state.articles.born}</span>
+                         <span className="carddetail">{this.state.articles.born}</span>
                          <div>
-                         <span className="font-weight-bold logo">Meninggal</span>
-                         <span className="ml-2 logo">{this.state.articles.dead}</span>
+                         <span className="font-weight-bold carddetail">Meninggal</span>
+                         <span className="ml-2 carddetail">{this.state.articles.dead}</span>
                          </div>
                          <div>
-                         <span className="font-weight-bold logo">Kewarganegaraan</span>
-                         <span className="ml-2 logo">{this.state.articles.nationality}</span>
+                         <span className="font-weight-bold carddetail">Kewarganegaraan</span>
+                         <span className="ml-2 carddetail">{this.state.articles.nationality}</span>
                          </div>
                          <div>
-                         <span className="font-weight-bold logo">Era</span>
-                         <span className="ml-2 logo">{this.state.articles.era}</span>
+                         <span className="font-weight-bold carddetail">Era</span>
+                         <span className="ml-2 carddetail">{this.state.articles.era}</span>
                          </div>
                          <div>
-                         <span className="font-weight-bold logo">Region</span>
-                         <span className="ml-2 logo">{this.state.articles.region}</span>
+                         <span className="font-weight-bold carddetail">Region</span>
+                         <span className="ml-2 carddetail">{this.state.articles.region}</span>
                          </div>
                      </CardText>
                    </CardBody>
@@ -347,18 +349,6 @@ class FigureDetail extends Component {
                      
                          
                          
-           
-                         
-                         
-                        
-                         
-                         
-                         
-                     
-                       
-                     
-                    
-                     
                      <Card className="mt-4 container shadow-none text-center" style={{backgroundColor: "rgb(245, 250, 255)", width: "300px", padding: "10px"}}>
                        
                        <Label className="font-weight-bold pt-2" style={{fontSize: "20px"}}>Kolom Komentar</Label>
@@ -369,7 +359,7 @@ class FigureDetail extends Component {
                
                            <div className="row mt-4 mr-2 justify-content-center">
                                <img className="pr-1"src={users} style={{width: "60px"}}/>
-                         <Input onChange={e => this.setState({inputComment: e.target.value})} style={{width: "500px"}} placeholder="Komentar Anda..." type="textarea" name="text" id="exampleText" />
+                         <Input ref= "inputcomment" onChange={e => this.setState({inputComment: e.target.value})} style={{width: "500px"}} placeholder="Komentar Anda..." type="textarea" name="text" id="exampleText" />
                          
                            </div>
                            <Button onClick={this.onSubmitComment} className="mt-3" style={{marginLeft: "610px"}} size="sm" outline color="primary">Submit</Button>{' '}
@@ -386,10 +376,22 @@ class FigureDetail extends Component {
                            </div>
            
                      
+           
+                         
+                         
+                        
+                         
+                         
+                         
+                     
+                       
+                     
+                    
+                     
                      
                
                      
-                           
+           
                            
                        )
                    }
@@ -397,7 +399,7 @@ class FigureDetail extends Component {
                        return (
                            <div>
                                <Card className="shadow-none">
-                       <CardHeader></CardHeader>
+                               <CardHeader style={{backgroundColor: "white", fontSize: "30px"}} className="font-weight-bold logo">{this.state.articles.name}</CardHeader>
                        <CardBody>
                          <CardTitle></CardTitle>
                          <Row> 
@@ -405,10 +407,45 @@ class FigureDetail extends Component {
                          <CardText>{ ReactHtmlParser(this.state.articles.content) }</CardText>
                          </div>
                          <div className="col-3">
-                         <img className="w-100" src={this.state.articles.imagedetail} />
+                         <Card className="shadow-none" outline color="secondary">
+                          
+                          <span className="text-center font-weight-bold logo border border-secondary bg-info m-2" style={{fontSize: "18px"}}>{this.state.articles.name}</span>
+                         <a href={this.state.articles.imagedetail}>
+                        <CardImg className="text-center pl-3" style={{width: "270px"}} src={this.state.articles.imagedetail} />
+                        </a>
+                        <CardBody>
+                     
+                     <CardText style={{fontSize: "15px"}}>
+                         <span className="mr-2 font-weight-bold carddetail">Lahir
+                         
+                         </span>
+                         <span className="carddetail">{this.state.articles.born}</span>
+                         <div>
+                         <span className="font-weight-bold carddetail">Meninggal</span>
+                         <span className="ml-2 carddetail">{this.state.articles.dead}</span>
+                         </div>
+                         <div>
+                         <span className="font-weight-bold carddetail">Kewarganegaraan</span>
+                         <span className="ml-2 carddetail">{this.state.articles.nationality}</span>
+                         </div>
+                         <div>
+                         <span className="font-weight-bold carddetail">Era</span>
+                         <span className="ml-2 carddetail">{this.state.articles.era}</span>
+                         </div>
+                         <div>
+                         <span className="font-weight-bold carddetail">Region</span>
+                         <span className="ml-2 carddetail">{this.state.articles.region}</span>
+                         </div>
+                     </CardText>
+                   </CardBody>
+                   </Card>
                         
                          </div>
                          </Row>
+                         <CardText>
+                             {ReactHtmlParser(this.state.articles.contentextra)}
+                         </CardText>
+                        
                          
                        </CardBody>
                        

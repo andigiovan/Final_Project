@@ -18,14 +18,15 @@ class Login extends Component {
 
  
 
-    onLoginClick = () => {
-
+    onLoginClick = (e) => {
+        e.preventDefault()
         let username = this.username.value
         let password = this.password.value
-
         this.props.onLoginUser(username, password)
+    }
 
-     }
+
+
    
     render() {
         if (!this.props.user_name) {
@@ -35,25 +36,34 @@ class Login extends Component {
                             Log In
                         </h1>
              
-                    
+                        
+                            
+                        
                         <div className="form col-lg-3 col-md-4 col-sm-4">
+                            <div className="mt-5 mb-2">Username</div>
+                            <Form onSubmit={this.onLoginClick}>
+                            <input ref={(input) => {this.username = input}} className="form-control-sm w-100 mb-2" type="text" name="username" placeholder="Enter your username" />
                             
-                                <div className="mt-5 mb-2">Username</div>
+                            <div className="mb-2">Password</div>
+                            <input ref={(input) => {this.password = input}} className="form-control-sm w-100" type="password" name="password" placeholder="Enter your password" />
                             
-                                <input ref={(input) => {this.username = input}} className="form-control-sm w-100 mb-2" type="text" name="username" placeholder="Enter your username" />
+                            <div>
+                                <button className="mt-4 btn btn-block btn-primary font-weight-bold mb-3 buttonLogin" onClick={this.onLoginClick}>
+                                    
+                                  <span className="loginRegister">
+                                  Log In
+                                  </span>
+                                    
+                                    </button>
+                            </div>
+                            </Form>
+                           
+                        </div>
                             
                 
                             
-                                <div className="mb-2">Password</div>
                             
                             
-                            <input ref={(input) => {this.password = input}} className="form-control-sm w-100" type="password" name="password" placeholder="Enter your password" />
-                            <div>
-                                <Button className="mt-4 btn btn-block btn-primary font-weight-bold mb-3" color="primary" size="sm" active onClick={this.onLoginClick}>Log In</Button>
-                            </div>
-                        
-                        </div>
-                   
                 </div>
               
              
@@ -73,3 +83,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps,{onLoginUser})(Login)
+                            
+                        
+                   

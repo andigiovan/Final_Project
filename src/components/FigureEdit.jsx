@@ -1,7 +1,9 @@
 import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import {Button} from "reactstrap"
+import Swal from "sweetalert2"
 import axios from "axios"
+
 
 
 class Testing extends React.Component {
@@ -16,6 +18,13 @@ class Testing extends React.Component {
                 content: this.state.input
             }
             )
+            .then(() => {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                  )
+            })
     }
 
     render(){

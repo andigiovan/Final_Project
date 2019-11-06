@@ -84,41 +84,7 @@ export const searchKeyword = (keyword) => {
 
 }
 
-export const updateRole = (ROLE, ID) => {
-    return(dispatch) => {
-        axios.get(
-            "http://localhost:4500/auth/getrole",
-            {
-                params: {
-                    role: ROLE,
-                    id: ID 
-                }
-            }
-        ).then(res => {
-            if (res.data.length === 1) {
-                let {id, role} = res.data[0]
-                const cookies = new Cookies()
-                cookies.set(
-                    "userData", 
-                     {id,role}
-    
-                )
-                dispatch(
-                    {
-                        type: 'SUBSCRIBE_SUCCESS',
-                        payload: {
-                            id, role
-                        }
-                    }
-                )
-                
-            }
-            
-        })
-    }
-    
-    
-}
+
 
 
 

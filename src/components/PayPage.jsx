@@ -44,8 +44,8 @@ class PayPage extends Component {
         ).then(res => {
           console.log(res);
           Swal.fire(
-            'Good job!',
-            'You clicked the button!',
+            'Berhasil submit bukti',
+            'Bukti transfer akan dicek oleh admin kami 1x24 jam',
             'success'
           )
           
@@ -81,15 +81,15 @@ class PayPage extends Component {
                     <input type="text" className="form-control mb-3" onChange={e => this.setState({subsName: e.target.value})}/>  
                   </div>
                   <div>
-                    <Button onClick={() => this.refs.fileBtn.click()} className="mr-3">Upload bukti pembayaran</Button>
-                    <Button onClick={this.onSubmit}>Submit</Button>
+                    <Button color="primary" active onClick={() => this.refs.fileBtn.click()} className="mr-3">Upload bukti pembayaran</Button>
+                    <Button color="primary" active onClick={this.onSubmit}>Submit</Button>
                     <input type="file" ref="fileBtn" className="d-none" onChange={e => this.setState({selectedFile: e.target.files[0]})} />
                   </div>
                 </div>
 
                 <div className="col-4 offset-4">
                   <Card className="shadow-none">
-                    <CardHeader>Ringkasan Pembayaran</CardHeader>
+                    <CardHeader className="bg-transparent">Ringkasan Pembayaran</CardHeader>
                     <CardBody>
                       <CardText className="row">
                         <div className="ml-3">Total Transaksi</div>
@@ -100,7 +100,7 @@ class PayPage extends Component {
                         <div className="ml-auto mr-3">Gratis</div>
                       </CardText>
                     </CardBody>
-                    <CardFooter className="row">
+                    <CardFooter className="row bg-transparent">
                       <div className="ml-3">Total Tagihan</div>
                       <div className="mr-3 ml-auto">Rp 10.000</div>
                     </CardFooter>

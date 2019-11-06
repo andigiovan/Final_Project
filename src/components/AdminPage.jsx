@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from "axios"
 import { Button } from 'reactstrap';
 import Swal from "sweetalert2"
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 
 const URL_API = 'http://localhost:4500/'
@@ -48,24 +50,59 @@ export class AdminPage extends Component {
           .then(
             this.getData,
             Swal.fire(
-                'Good job!',
-                'You clicked the button!',
+                'Berhasil',
+                'Bukti transfer telah dikonfirmasi',
                 'success'
               )
           )
           
     }
 
+    deleteButton = (id) => {
+        Swal.fire({
+          title: 'Apa Anda yakin?',
+          text: "Bukti transfer ini akan terhapus!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+          if (result.value) {
+            axios.delete(
+                    "http://localhost:4500/deletesubs", 
+                    {
+                        params: {
+                            id : id
+                        }
+                        
+                    } 
+                    ).then(() => {
+                      Swal.fire(
+                      'Terhapus!',
+                      'Bukti transfer telah terhapus.',
+                      'success'
+                      )
+                        this.getData()
+                    })
+            }
+          })
+          }
+                    
+                       
+                    
+        
+
     approveButton = (id, isApproved) => {
         if (isApproved) {
             return(
-            <Button disabled outline color="success">success</Button>
+            <Button disabled outline color="success">Konfirmasi</Button>
             )
        
         }
         else {
             return(
-            <Button onClick={() => {this.onApprove(id)}} outline color="success">success</Button>
+            <Button onClick={() => {this.onApprove(id)}} outline color="success">Konfirmasi</Button>
             )
         }
     }
@@ -86,6 +123,8 @@ export class AdminPage extends Component {
                     <td>{val.id_user}</td>
                     <td>{val.isApproved ? 'Selesai' : 'Belum selesai'}</td>
                     <td>{this.approveButton(val.id_user, val.isApproved)}</td>
+                    <td><Button onClick={() => this.deleteButton(val.id)} outline color="danger">Delete</Button></td>
+                    
                     
                     
                 </tr>
@@ -96,30 +135,45 @@ export class AdminPage extends Component {
 
     }
     render() {
-        return (
-            <div className="container">
-                <div className="row mt-5">
-                    <h3 className="mb-4">Approval</h3>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Deskripsi</th>
-                                <th>Bukti Transfer</th>
-                                <th>ID_User</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.renderApproval()}
-                        </tbody>
-                    </table>
+        if (this.props.role === "admin") {
+            return (
+                <div className="container">
+                    <div className="row mt-5">
+                        <h3 className="mb-4 text-center">Bukti Transfer Pembeli</h3>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Deskripsi</th>
+                                    <th>Bukti Transfer</th>
+                                    <th>ID_User</th>
+                                    <th>Status</th>
+                                    <th>Konfirmasi</th>
+                                    <th>Hapus Bukti</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderApproval()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else {
+            return <Redirect to="/"/>
+        }
+        
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        role: state.auth.role  
+    }
+}
+      
 
 
-export default AdminPage
+
+export default connect(mapStateToProps)(AdminPage)

@@ -6,12 +6,14 @@ import { connect } from 'react-redux'
 import star from "../helpers/images/goldenstar.png"
 import axios from "axios"
 import Swal from 'sweetalert2'
+import { Spinner } from 'reactstrap';
 
 class FigureList extends Component {
 
   state = {
     articles: [],
-    articles_2: []
+    articles_2: [],
+    
   }
 
   getData = () => {
@@ -62,6 +64,8 @@ class FigureList extends Component {
     }
     
   }
+
+  
 
   renderList = () => {
 
@@ -186,6 +190,7 @@ class FigureList extends Component {
           <Row className="figure-list mt-4 justify-content-center">
          
          {this.renderPremium()}
+         
        
        </Row>
 

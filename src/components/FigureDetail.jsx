@@ -6,7 +6,10 @@ import { Card, CardHeader, CardFooter, CardSubtitle, CardBody,
     CardTitle, CardText, CardImg, Row, Label, Input, Button} from 'reactstrap';
 import users from "../helpers/images/userblue.png"
 import Swal from 'sweetalert2'
+import { Spinner } from 'reactstrap';
 var moment = require('moment')
+
+
 
 
 
@@ -21,7 +24,8 @@ class FigureDetail extends Component {
         comments: [],
         inputComment: [],
         selectedId: 0,
-        editedComment: ""
+        editedComment: "",
+        loading: true
         
     }
         
@@ -41,7 +45,9 @@ class FigureDetail extends Component {
 
         ).then((res) => {
            console.log(res.data[0]);
-           this.setState({articles: res.data[0]})
+           this.setState({articles: res.data[0],
+                          loading: false
+                        })
            
             
         })
@@ -56,7 +62,8 @@ class FigureDetail extends Component {
                 
             }
         ).then((res) => {
-          this.setState({comments: res.data})
+          this.setState({comments: res.data,
+                         loading: false  })
   
           
         })
@@ -87,17 +94,8 @@ class FigureDetail extends Component {
         )
         .then((res) => {
             
-            axios.patch (
-                `http://localhost:4500/comment/updatecomment`, 
-                {
-                   id: this.state.selectedId
-                   
-                }
-                )
-        })
-        .then((res) => {
             this.getComment()
-            this.setState({selectedId: 0})
+            this.setState({selectedId:0})
         }).catch((err) => {
             console.log(err)
             
@@ -125,7 +123,7 @@ class FigureDetail extends Component {
                 type: 'error',
                 title: 'Oops...',
                 text: 'Komen kosong',
-                footer: '<a href=/premium>klik disini untuk berlangganan</a>'
+                
               })
         }
         else {
@@ -192,7 +190,7 @@ class FigureDetail extends Component {
                         <CardTitle className="ml-3 font-weight-bold">
                             {val.username}
                             <span className="ml-1" style={{fontSize: "10px", color: "grey"}}>
-                            { moment(val.created_at).fromNow()} {val.edited}
+                            { moment(val.created_at).fromNow()}
                             </span>
                            
                             
@@ -292,8 +290,15 @@ class FigureDetail extends Component {
                
                render() {
                    console.log(this.state);
-                   
-                   if (this.props.name) {
+                   if (this.state.loading) {
+                       return(
+                           <div className="text-center mt-3">
+                            <Spinner style={{ width: '3rem', height: '3rem' }} />{' '}
+                           </div>
+
+                       )
+                   }
+                   else if (this.props.name) {
                        return (
                            <div>
                                
@@ -358,11 +363,15 @@ class FigureDetail extends Component {
                        <div className="border-top border-dark mt-4"></div>
                
                            <div className="row mt-4 mr-2 justify-content-center">
+                               
                                <img className="pr-1"src={users} style={{width: "60px"}}/>
                          <Input ref= "inputcomment" onChange={e => this.setState({inputComment: e.target.value})} style={{width: "500px"}} placeholder="Komentar Anda..." type="textarea" name="text" id="exampleText" />
                          
                            </div>
+                           <span>
                            <Button onClick={this.onSubmitComment} className="mt-3" style={{marginLeft: "610px"}} size="sm" outline color="primary">Submit</Button>{' '}
+                           </span>
+                           
                            
                            <div>
                            <div className="font-weight-bold" style={{marginLeft: "150px"}}>
@@ -394,6 +403,7 @@ class FigureDetail extends Component {
            
                            
                        )
+                       
                    }
                    else {
                        return (

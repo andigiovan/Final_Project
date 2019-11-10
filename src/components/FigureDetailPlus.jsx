@@ -76,22 +76,10 @@ onEditSubmit = () => {
        
     }
     )
+    
     .then((res) => {
-        
-        axios.patch (
-            `http://localhost:4500/premiumcomment/updatecomment`, 
-            {
-               id: this.state.selectedId
-               
-            }
-            )
-    })
-    .then((res) => {
-
-        this.setState({selectedId: 0
-        }, () => {
-            this.getComment()
-        })
+        this.getComment()
+        this.setState({selectedId: 0})
     }).catch((err) => {
         console.log(err)
         

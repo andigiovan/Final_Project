@@ -3,6 +3,7 @@ import { Card, Label, Button, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import axios from "axios"
 import Swal from 'sweetalert2'
+import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 const URL_API = 'http://localhost:4500/'
@@ -44,8 +45,8 @@ class PayPage extends Component {
         ).then(res => {
           console.log(res);
           Swal.fire(
-            'Berhasil submit bukti',
-            'Bukti transfer akan dicek oleh admin kami 1x24 jam',
+            'Berhasil',
+            'Bukti transfer akan di-cek oleh admin kami 1x24 jam',
             'success'
           )
           
@@ -58,6 +59,7 @@ class PayPage extends Component {
       
 
     render() {
+      if (this.props.name) {
         return (
           <div>
             <Card className="shadow-none">
@@ -111,6 +113,11 @@ class PayPage extends Component {
             </Card>
           </div>
         )
+      }
+      else {
+        return <Redirect to="/"/>
+      }
+        
     }
 
 }
@@ -118,6 +125,7 @@ class PayPage extends Component {
 const mapStateToProps = state => {
   return {
     id: state.auth.id,
+    name: state.auth.username
      
   }
 }

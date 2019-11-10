@@ -233,9 +233,9 @@ class Header extends Component {
                   <NavLink to='/figurelist'>
                       <Button className='topnav-right btn-sm' color="link">ParaTokoH</Button>
                       </NavLink>
-                      <NavLink to='/figureedit'>
-                      <Button className='topnav-right btn-sm' color="link">Post</Button>
-                      </NavLink>
+                      
+                      <Button className='topnav-right btn-sm' disabled color="link">Post</Button>
+                      
                         <NavLink to='/premium'>
                         <Button className='topnav-right btn-sm' color="link">{this.props.user_name}</Button>
                         </NavLink>

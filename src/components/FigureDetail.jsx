@@ -386,6 +386,108 @@ class FigureDetail extends Component {
            
                      
            
+       )
+       
+   }
+   else {
+       return (
+           <div>
+               <Card className="shadow-none">
+               <CardHeader style={{backgroundColor: "white", fontSize: "30px"}} className="font-weight-bold logo">{this.state.articles.name}</CardHeader>
+       <CardBody>
+         <CardTitle></CardTitle>
+         <Row> 
+           <div className="col-9">
+         <CardText>{ ReactHtmlParser(this.state.articles.content) }</CardText>
+         </div>
+         <div className="col-3">
+         <Card className="shadow-none" outline color="secondary">
+          
+          <span className="text-center font-weight-bold logo border border-secondary bg-info m-2" style={{fontSize: "18px"}}>{this.state.articles.name}</span>
+         <a href={this.state.articles.imagedetail}>
+        <CardImg className="text-center pl-3" style={{width: "270px"}} src={this.state.articles.imagedetail} />
+        </a>
+        <CardBody>
+     
+     <CardText style={{fontSize: "15px"}}>
+         <span className="mr-2 font-weight-bold carddetail">Lahir
+         
+         </span>
+         <span className="carddetail">{this.state.articles.born}</span>
+         <div>
+         <span className="font-weight-bold carddetail">Meninggal</span>
+         <span className="ml-2 carddetail">{this.state.articles.dead}</span>
+         </div>
+         <div>
+         <span className="font-weight-bold carddetail">Kewarganegaraan</span>
+         <span className="ml-2 carddetail">{this.state.articles.nationality}</span>
+         </div>
+         <div>
+         <span className="font-weight-bold carddetail">Era</span>
+         <span className="ml-2 carddetail">{this.state.articles.era}</span>
+         </div>
+         <div>
+         <span className="font-weight-bold carddetail">Region</span>
+         <span className="ml-2 carddetail">{this.state.articles.region}</span>
+         </div>
+     </CardText>
+   </CardBody>
+   </Card>
+        
+         </div>
+         </Row>
+         <CardText>
+             {ReactHtmlParser(this.state.articles.contentextra)}
+         </CardText>
+        
+         
+       </CardBody>
+       
+     </Card>
+     
+     
+     <Card className="mt-4 container shadow-none text-center" style={{backgroundColor: "rgb(245, 250, 255)", width: "300px", padding: "10px"}}>
+       
+       <Label className="font-weight-bold pt-2" style={{fontSize: "20px"}}>Kolom Komentar</Label>
+      
+       </Card>
+
+       <div className="border-top border-dark mt-4"></div>
+
+           <div>
+           <div className="font-weight-bold mt-3" style={{marginLeft: "150px"}}>
+           {this.state.comments.length} Komentar
+           </div>
+           <div className="mb-3">
+           {this.renderComment()}
+           </div>
+                       
+           </div>            
+         
+          
+           </div>
+          
+          )
+      }
+  }
+
+
+
+}
+           
+           
+const mapStateToProps = (state) => {
+return {
+id : state.auth.id,
+name : state.auth.username,
+role : state.auth.role
+}
+} 
+   
+
+
+export default connect(mapStateToProps)(FigureDetail)
+           
                          
                          
                         
@@ -402,90 +504,6 @@ class FigureDetail extends Component {
                      
            
                            
-                       )
-                       
-                   }
-                   else {
-                       return (
-                           <div>
-                               <Card className="shadow-none">
-                               <CardHeader style={{backgroundColor: "white", fontSize: "30px"}} className="font-weight-bold logo">{this.state.articles.name}</CardHeader>
-                       <CardBody>
-                         <CardTitle></CardTitle>
-                         <Row> 
-                           <div className="col-9">
-                         <CardText>{ ReactHtmlParser(this.state.articles.content) }</CardText>
-                         </div>
-                         <div className="col-3">
-                         <Card className="shadow-none" outline color="secondary">
-                          
-                          <span className="text-center font-weight-bold logo border border-secondary bg-info m-2" style={{fontSize: "18px"}}>{this.state.articles.name}</span>
-                         <a href={this.state.articles.imagedetail}>
-                        <CardImg className="text-center pl-3" style={{width: "270px"}} src={this.state.articles.imagedetail} />
-                        </a>
-                        <CardBody>
-                     
-                     <CardText style={{fontSize: "15px"}}>
-                         <span className="mr-2 font-weight-bold carddetail">Lahir
-                         
-                         </span>
-                         <span className="carddetail">{this.state.articles.born}</span>
-                         <div>
-                         <span className="font-weight-bold carddetail">Meninggal</span>
-                         <span className="ml-2 carddetail">{this.state.articles.dead}</span>
-                         </div>
-                         <div>
-                         <span className="font-weight-bold carddetail">Kewarganegaraan</span>
-                         <span className="ml-2 carddetail">{this.state.articles.nationality}</span>
-                         </div>
-                         <div>
-                         <span className="font-weight-bold carddetail">Era</span>
-                         <span className="ml-2 carddetail">{this.state.articles.era}</span>
-                         </div>
-                         <div>
-                         <span className="font-weight-bold carddetail">Region</span>
-                         <span className="ml-2 carddetail">{this.state.articles.region}</span>
-                         </div>
-                     </CardText>
-                   </CardBody>
-                   </Card>
-                        
-                         </div>
-                         </Row>
-                         <CardText>
-                             {ReactHtmlParser(this.state.articles.contentextra)}
-                         </CardText>
-                        
-                         
-                       </CardBody>
-                       
-                     </Card>
-                     
-                     
-                     <Card className="mt-4 container shadow-none text-center" style={{backgroundColor: "rgb(245, 250, 255)", width: "300px", padding: "10px"}}>
-                       
-                       <Label className="font-weight-bold pt-2" style={{fontSize: "20px"}}>Kolom Komentar</Label>
-                      
-                       </Card>
-           
-                       <div className="border-top border-dark mt-4"></div>
-               
-                           <div>
-                           <div className="font-weight-bold mt-3" style={{marginLeft: "150px"}}>
-                           {this.state.comments.length} Komentar
-                           </div>
-                           <div className="mb-3">
-                           {this.renderComment()}
-                           </div>
-                                       
-                           </div>            
-                           
-                           
-                           
-                         
-                          
-                           </div>
-                          
                            
            
                            
@@ -497,25 +515,7 @@ class FigureDetail extends Component {
                      
                            
                            
-                       )
-                   }
-               }
            
-           
-           
-           }
-           
-           const mapStateToProps = (state) => {
-               return {
-                 id : state.auth.id,
-                 name : state.auth.username,
-                 role : state.auth.role
-               }
-           } 
-                
-           
-           
-           export default connect(mapStateToProps)(FigureDetail)
                     
                 
                 

@@ -17,6 +17,7 @@ import AdminPage from "./AdminPage"
 import ApprovedPremium from "./ApprovedPremium"
 import LinkVerify from "./LinkVerify"
 import Footer from "./Footer"
+import UserArticleDetail from "./UserArticleDetail"
 
 const keepLogin = (objUser) => {
     
@@ -51,28 +52,45 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div>
-
-                <BrowserRouter>
-                <Header/>
-                <Route path='/' exact component={Home}/>
-                <Route path='/login' component={Login}/>
-                <Route path='/register' component={Register}/>
-                <Route path='/figuredetail/:id' component={FigureDetail}/>
-                <Route path='/premiumfiguredetail/:id' component={FigureDetailPlus}/>
-                <Route path='/figureedit' component={FigureEdit}/>
-                <Route path='/figurelist' component={FigureList}/>
-                <Route path='/premium' component={Premium}/>
-                <Route path='/paypage' component={PayPage}/>
-                <Route path='/adminpage' component={AdminPage}/>
-                <Route path='/approvedpremium' component={ApprovedPremium}/>
-                <Route path='/linkverify' component={LinkVerify}/>
-                <Footer/>
-                </BrowserRouter>
-            </div>
-        )
+        if (this.state.check) {
+            return (
+                <div>
+    
+                    <BrowserRouter>
+                    <Header/>
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/login' component={Login}/>
+                    <Route path='/register' component={Register}/>
+                    <Route path='/figuredetail/:id' component={FigureDetail}/>
+                    <Route path='/premiumfiguredetail/:id' component={FigureDetailPlus}/>
+                    <Route path='/userarticledetail/:id' component={UserArticleDetail}/>
+                    <Route path='/figureedit' component={FigureEdit}/>
+                    <Route path='/figurelist' component={FigureList}/>
+                    <Route path='/premium' component={Premium}/>
+                    <Route path='/paypage' component={PayPage}/>
+                    <Route path='/adminpage' component={AdminPage}/>
+                    <Route path='/approvedpremium' component={ApprovedPremium}/>
+                    <Route path='/linkverify' component={LinkVerify}/>
+                    <Footer/>
+                    </BrowserRouter>
+                </div>
+            )
+        }
+        else {
+            return (
+                <p>loading</p>
+            )
+        }
     }
 }
 
-export default connect(null,{keepLogin})(App)
+const mapStateToProps = state => {
+
+    return {
+        cookieChecker: false
+    }
+}
+
+
+export default connect(mapStateToProps,{keepLogin})(App)
+                   

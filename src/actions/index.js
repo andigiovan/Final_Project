@@ -34,7 +34,7 @@ export const onLoginUser = (USERNAME, PASSWORD) => {
                     type: 'error',
                     title: 'Oops...',
                     text: 'Akun Anda belum terverifikasi',
-                    footer: '<p>Silahkan coba lagi</p>'
+                    footer: '<p>Silahkan lakukan verifikasi</p>'
                   })
             }
             else {

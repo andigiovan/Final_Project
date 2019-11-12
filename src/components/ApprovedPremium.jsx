@@ -39,6 +39,16 @@ export class ApprovedPremium extends Component {
     
   }
 
+  deleteButton = (id) => {
+    axios.delete(
+      `http://localhost:4500/art/deleteuserarticle/${id}`  
+      )
+      .then(() => {
+        this.getUserArticle()
+      })
+      
+  }
+
   componentWillMount() {
     console.log(this.props.id)
   }
@@ -56,21 +66,27 @@ export class ApprovedPremium extends Component {
       let list =  this.state.articles.map((article) => {
         return(
         <Link to= {`/userarticledetail/${article.id}`} className="col-4 mt-4" style={{textDecoration: "none", color: "black"}}>
-      <Card>
+      <Card className="shadow-sm">
         <CardImg src={article.image} />
         <CardBody>
           <CardTitle className="text-center logo font-weight-bold" style={{fontSize: "20px"}}>{article.name}</CardTitle>
           <CardText>{article.subtitle}</CardText>
+          <Link to="/approvedpremium">
+          <CardFooter className="text-center">
+          <Button onClick={() => this.deleteButton(article.id)} color="danger">Delete</Button>{' '}
+         </CardFooter>
+          </Link>
           
-         
         </CardBody>
       </Card>
       </Link>
+      
       )
       })
       return list
     
   }
+         
 
 
     render() {

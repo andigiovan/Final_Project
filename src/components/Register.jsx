@@ -87,7 +87,7 @@ class Register extends Component {
                             
                         }
                         ).then(() => {
-                            this.setState({loading: false, success:'Membuat akun berhasil'})
+                            this.setState({loading: false, success:'Membuat akun berhasil, silahkan verifikasi'})
                             setTimeout(() => {
                                 this.props.history.push("/login")
                             

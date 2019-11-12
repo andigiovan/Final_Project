@@ -117,18 +117,15 @@ class Home extends Component {
           </p>
           </div>
           </div>
-          <Link className="font-weight-bold lead text-primary">
-            Lanjutkan Membaca...
-          </Link>
+          
         </Container>
       </Jumbotron>
       <Card className="mt-3 shadow-none" body>
           <CardTitle className="logo font-weight-bold" style={{fontSize:"30px"}}>
-            SEJARAH
+            Philosophy
           </CardTitle>
           <CardText>
-            <p className="text-justify" style={{fontSize: "20px"}}>Tahukah Kamu, Soekarno dalam pidatonya yang terakhir pada Hari Ulang Tahun (HUT) Republik Indonesia tanggal 17 Agustus 1966, mengucapkan semboyan yang terkenal yaitu 
-            "Jangan Sekali-kali Meninggalkan Sejarah" atau disingkat Jasmerah. Hal ini mengingatkan kita betapa pentingnya sejarah.
+            <p className="text-justify" style={{fontSize: "20px"}}>Philosophy is the study of the nature of existence, knowledge, truth and ethics. It involves consideration of the most fundamental questions about who we are, and examines philosophical thought across the breadth of history right up to the present day.
               </p>
 
           </CardText>
@@ -136,11 +133,10 @@ class Home extends Component {
         </Card>
       <Card className="mt-3 shadow-none" body>
           <CardTitle className="logo font-weight-bold" style={{fontSize:"30px"}}>
-            SEJARAH
+            Modern History
           </CardTitle>
           <CardText>
-            <p className="text-justify" style={{fontSize: "20px"}}>Tahukah Kamu, Soekarno dalam pidatonya yang terakhir pada Hari Ulang Tahun (HUT) Republik Indonesia tanggal 17 Agustus 1966, mengucapkan semboyan yang terkenal yaitu 
-            "Jangan Sekali-kali Meninggalkan Sejarah" atau disingkat Jasmerah. Hal ini mengingatkan kita betapa pentingnya sejarah.
+            <p className="text-justify" style={{fontSize: "20px"}}>The early modern period in history is roughly 1500–1789, but the label "early modern philosophy" is typically used to refer to a narrower period of time. In the narrowest sense, the term is used to refer principally to the philosophy of the 17th century and 18th century, typically beginning with René Descartes.
               </p>
 
           </CardText>
@@ -148,11 +144,10 @@ class Home extends Component {
         </Card>
       <Card className="mt-3 shadow-none" body>
           <CardTitle className="logo font-weight-bold" style={{fontSize:"30px"}}>
-            SEJARAH
+           Modern period of philosophy
           </CardTitle>
           <CardText>
-            <p className="text-justify" style={{fontSize: "20px"}}>Tahukah Kamu, Soekarno dalam pidatonya yang terakhir pada Hari Ulang Tahun (HUT) Republik Indonesia tanggal 17 Agustus 1966, mengucapkan semboyan yang terkenal yaitu 
-            "Jangan Sekali-kali Meninggalkan Sejarah" atau disingkat Jasmerah. Hal ini mengingatkan kita betapa pentingnya sejarah.
+            <p className="text-justify" style={{fontSize: "20px"}}>The Modern period of philosophy generally corresponds to the 19th and 20th Century. More recent developments in the late 20th Century are sometimes referred to as the Contemporary period. Along with significant scientific and political revolutions, the Modern period exploded in a flurry of new philosophical movements.
               </p>
 
           </CardText>

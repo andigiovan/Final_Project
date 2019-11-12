@@ -68,6 +68,13 @@ onEditCancel = () => {
 }
 
 onEditSubmit = () => {
+    if (this.state.editedComment ===  this.state.inputComment) {
+        return (
+            <Button disabled>Submit</Button>
+        )
+    }
+
+    else {
     axios.patch (
     `http://localhost:4500/premiumcomment/editcomment`, 
     {
@@ -84,6 +91,7 @@ onEditSubmit = () => {
         console.log(err)
         
     })
+}
 }
 
 

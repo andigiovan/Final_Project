@@ -29,7 +29,7 @@ class Premium extends Component {
           <h1 className="display-3 logo">
               Dapatkan akses konten premium dengan cara berlangganan.
           </h1>
-          <p className="lead font-weight-bold">Hanya Rp. 10.000 anda dapat mengakses konten premium kami seumur hidup.</p>
+          <p className="lead font-weight-bold">Hanya Rp. 10.000 anda dapat mengakses konten premium kami seumur hidup, selain itu Anda juga dapat membuat artikel pribadi sendiri.</p>
           
         </Container>
       </Jumbotron>

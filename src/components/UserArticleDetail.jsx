@@ -81,6 +81,7 @@ export class UserArticleDetail extends Component {
           </div>
           
       </CardText>
+      
     </CardBody>
   </Card>
           </div>

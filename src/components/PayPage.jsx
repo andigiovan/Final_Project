@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 
+
 const URL_API = 'http://localhost:4500/'
 
 class PayPage extends Component {
@@ -28,13 +29,32 @@ class PayPage extends Component {
       state = {
         selectedFile: null,
         subscribe: [],
-        subsName: '',
-        bank: ""
-        
-        
-      }
+        subsName: undefined,
+        bank: "",
+        value: "Transfer ke Bank BCA: 5271414910 a.n. Andi M Giovan",
+        file: null,
+        fileName: ""
 
-      onSubmit = () => {
+        
+        
+        }
+
+        onSubmit = () => {
+          if (this.state.subsName === undefined) {
+            Swal.fire(
+            'Oops',
+            'Nama rekening tidak boleh kosong',
+            'error'
+            )
+          }
+          else if (!this.state.selectedFile) {
+            Swal.fire(
+              'Oops',
+              'Bukti belum Anda upload',
+              'error'
+              )
+          }
+        else {
         var fd =new FormData
         fd.append('browse_file', this.state.selectedFile, this.state.selectedFile.name)
         fd.append('subs_name', this.state.subsName)
@@ -55,11 +75,26 @@ class PayPage extends Component {
           
         })
       }
+    }
 
-      
+      onChange = (e) => {
+        this.setState({value: e.target.value})
+      }
 
-    render() {
+      show=(e)=>{
+        this.setState({
+            file: URL.createObjectURL(e.target.files[0]),
+            selectedFile:e.target.files[0],
+            fileName: e.target.files[0].name
+
+        })
+      }
+
+     
+      render() {
       if (this.props.name) {
+        console.log(this.state.selectedFile);
+        
         return (
           <div>
             <Card className="shadow-none">
@@ -73,19 +108,24 @@ class PayPage extends Component {
                 <div className="col-4">
                   <div className="mb-2">
                    Bank Tujuan
-                    <select className="form-control ">
-                      <option >Bank Bca</option>
-                      <option>Bank Mandiri</option>
+                    <select onChange={this.onChange} value={this.state.value} className="form-control ">
+                      <option value="Transfer ke Bank BCA: 5271414910 a.n. Andi M Giovan" >
+                        Bank Bca
+                        </option>
+                      <option value="Transfer ke Bank MANDIRI: 5271426577 a.n. Giovan">Bank Mandiri</option>
                     </select>
                   </div>
                   <div>
-                    Nama Rekening
+                  <p>{this.state.value}</p>
+                    Nama Rekening Anda
                     <input type="text" className="form-control mb-3" onChange={e => this.setState({subsName: e.target.value})}/>  
                   </div>
                   <div>
                     <Button color="primary" active onClick={() => this.refs.fileBtn.click()} className="mr-3">Upload bukti pembayaran</Button>
                     <Button color="primary" active onClick={this.onSubmit}>Submit</Button>
-                    <input type="file" ref="fileBtn" className="d-none" onChange={e => this.setState({selectedFile: e.target.files[0]})} />
+                    <img className="w-25 mt-3" src={this.state.file} alt=""/>
+                    <div>{this.state.fileName}</div>
+                    <input type="file" ref="fileBtn" className="d-none" onChange={e => this.show(e)}/>
                   </div>
                 </div>
 

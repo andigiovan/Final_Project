@@ -84,6 +84,12 @@ class FigureDetail extends Component {
     }
 
     onEditSubmit = () => {
+        if (this.state.editedComment ===  this.state.inputComment) {
+            return (
+                <Button disabled>Submit</Button>
+            )
+        }
+        else {
         axios.patch (
         `http://localhost:4500/comment/editcomment`, 
         {
@@ -101,6 +107,7 @@ class FigureDetail extends Component {
             
         })
     }
+}
 
 
 
